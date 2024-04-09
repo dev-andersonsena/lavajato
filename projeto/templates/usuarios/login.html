@@ -1,0 +1,33 @@
+<!-- login.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static './assets/css/login01.css' %}">
+</head>
+<body>
+    <div class="panel">
+        {% for message in messages %}
+        <div>
+            <p id='messages'>{{ message }}</p>
+        </div>
+        {% endfor %}
+        <div class="state"><br><i class="fa fa-unlock-alt"></i><br><h1>login</h1></div>
+        <div class="form">
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <label for="nome_login" class="letr">Email:</label> <!-- Corrija o atributo 'for' -->
+                <input id="nome_login" placeholder='Nome' type="text" name="nome_login" required> <!-- Corrija o atributo 'name' -->
+                <label for="senha" class="letr">Senha:</label>
+                <input id="senha" placeholder='senha' type="password"  name="senha" required>
+                <button type="submit" class="login">Login</button>
+            </form>
+        
+            
+        </div>
+    </div>
+</body>
+</html>

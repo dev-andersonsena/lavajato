@@ -1,0 +1,40 @@
+ /* Estilo para o container do loading */
+ .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.319); /* Cor de fundo com transparência */
+    z-index: 9999; /* Garante que o container fique sobreposto a outros elementos */
+}
+
+/* Estilo para a animação do loading */
+.loading-spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #0b0c0c;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estilo para a seção */
+.features7 {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    
+}
+
+.section-visible {
+    opacity: 1;
+}
