@@ -113,3 +113,6 @@ def excluir_usuario(request, user_id):
 
     # Redirecione para onde você quiser após a exclusão
     return redirect('index')
+
+def calendario(request):
+    return render(request, 'calendario/calendario.html')

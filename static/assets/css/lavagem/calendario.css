@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.calendario {
+    margin: 20px auto;
+    width: 300px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+.mes {
+    background-color: #333;
+    text-align: center;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: #222;
+}
+
+table td {
+    border: 1px solid #444;
+}
+
+/* Estilo para dias passados */
+table td.past-day {
+    color: #888;
+}
+
+/* Estilo para dias atuais */
+table td.current-day {
+    color: #fff;
+    background-color: #00f; /* Azul para dias atuais */
+}
+
+/* Estilo para dias futuros */
+table td.future-day {
+    color: #888;
+}

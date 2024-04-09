@@ -1,11 +1,55 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static './assets/css/lavagem/calendario.css' %}">
+
 </head>
 <body>
-    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calendario">
+        <div class="mes">
+            <h2>Março 2024</h2>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>D</th>
+                    <th>S</th>
+                    <th>T</th>
+                    <th>Q</th>
+                    <th>Q</th>
+                    <th>S</th>
+                    <th>S</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td>1</td>
+                    <td>2</td>
+                </tr>
+                <!-- Adicione mais linhas conforme necessário -->
+            </tbody>
+        </table>
+    </div>
+
+<script src="{% static './assets/js/lavagem/calendario.js' %} "></script>
+
 </body>
 </html>
