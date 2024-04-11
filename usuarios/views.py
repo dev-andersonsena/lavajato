@@ -5,7 +5,7 @@ from django.contrib import auth
 from django.contrib import messages
 from .models import User, UserProfile
 from django.contrib.auth import authenticate, login
-from .forms import UserProfileForm
+from .forms import CadastroForms, UserProfileForm
 
 
 
@@ -39,17 +39,22 @@ def cadastro(request):
             nome = form.cleaned_data.get('nome_cadastro')
             email = form.cleaned_data.get('email')
             senha = form.cleaned_data.get('senha_1')
-            telefone = form.cleaned_data.get('telefone')
+            telefone = form.cleaned_data.get('telefone')  # Acessando o telefone do formulário
+
             if senha != form.cleaned_data.get('senha_2'):
                 form.add_error('senha_2', 'As senhas não coincidem')
                 return render(request, "usuarios/cadastro.html", {"form": form})
+
             if User.objects.filter(username=nome).exists():
                 form.add_error('nome_cadastro', 'Este nome de usuário já está em uso')
                 return render(request, "usuarios/cadastro.html", {"form": form})
+
             # Cria o usuário
             usuario = User.objects.create_user(username=nome, email=email, password=senha)
+            
             # Cria o UserProfile associado ao usuário
-            UserProfile.objects.create(user=usuario)
+            UserProfile.objects.create(user=usuario, telefone=telefone)  # Passando o telefone para a criação do UserProfile
+            
             messages.success(request, 'Cadastro efetuado com sucesso!')
             return redirect('login')  # Redireciona para a página de login após o cadastro bem-sucedido
 
@@ -62,7 +67,11 @@ def escolher_modelo(request, modelo):
         perfil_usuario = UserProfile.objects.get(user=request.user)
         # Atualize o modelo de carro preferido do usuário
         perfil_usuario.modelo_carro_preferido = modelo
-        perfil_usuario.save()   
+        perfil_usuario.save()
+        if (perfil_usuario.modelo_carro_preferido == 'caminhonete'):
+            return redirect ('tipolavagem')
+        if (perfil_usuario.modelo_carro_preferido == 'SUV'):
+            return redirect ('index')
     
     # Redirecione o usuário para onde você deseja após a escolha do modelo
     return redirect('index')
