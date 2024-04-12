@@ -29,7 +29,7 @@ body {
   }
   .display-5 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 2.125rem;
+    font-size: 1.755rem;
     line-height: 1.2058em;
     letter-spacing: .02em;
   }
@@ -2022,13 +2022,13 @@ body {
     padding: 0 25px;
   }
   .cid-ttRnSl4kMw .card:nth-child(2) .card-wrapper {
-    background-image: linear-gradient(99deg, #a4a2a2 39%, #ffffff 100%);
+    background-image: linear-gradient(99deg, #e9ebf9 39%, #d6e0ff  100%);
   }
   .cid-ttRnSl4kMw .card-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid #282828;
+    border: 1px solid #5a87ffe0;
     padding: 45px 30px 60px;
   }
   @media (max-width: 992px) {
