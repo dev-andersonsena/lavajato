@@ -111,60 +111,61 @@
 
 <section data-bs-version="5.1" class="features7 boldm5 cid-ttRnAijqXt section-hidden" id="features7-6">
 
-<div class="container-fluid">
-  <div class="row">
-      <div class="col-12 col-lg-6 col-md-6 item features-image active">
-          <a class="item-link" href="{% url 'escolher_modelo' 'caminhonete' %}">
-              <div class="item-wrapper">
-                  <img src="{% static './assets/img/modelo/caminhonete.avif' %}" alt="" data-slide-to="1"
-                  data-bs-slide-to="1">
-                  <div class="item-content">
-                      <h2 class="card-title mbr-fonts-style display-2">
-                        CAMINHONETES
-                      </h2>
-                  </div>
-              </div>
-          </a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-6 col-md-6 item features-image active">
+                <a class="item-link" href="{% url 'escolher_modelo' 'caminhonete' %}">
+                    <div class="item-wrapper">
+                        <img src="{% static './assets/img/modelo/caminhonete.avif' %}" alt="" data-slide-to="1"
+                        data-bs-slide-to="1">
+                        <div class="item-content">
+                            <h2 class="card-title mbr-fonts-style display-2">
+                              CAMINHONETES
+                            </h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-lg-6 col-md-6 item features-image">
+                <a class="item-link" href="{% url 'escolher_modelo' 'suv' %}">
+                    <div class="item-wrapper">
+                        <img src="{% static './assets/img/modelo/suv.jpg' %}" alt="" data-slide-to="0" data-bs-slide-to="0">
+                        <div class="item-content">
+                            <h2 class="card-title mbr-fonts-style display-2">
+                                SUVs
+                            </h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+      
+      
+      <div class="col-12 col-lg-6 col-md-6 item features-image">
+        <a class="item-link" href="{% url 'escolher_modelo' 'sedan' %}">
+            <div class="item-wrapper">
+                <img src="{% static './assets/img/modelo/sedaan.jpg' %}" alt="" data-slide-to="0" data-bs-slide-to="0">
+                <div class="item-content">
+                    <h2 class="card-title mbr-fonts-style display-2">
+                        SEDANs
+                    </h2>
+                </div>
+            </div>
+        </a>
       </div>
       <div class="col-12 col-lg-6 col-md-6 item features-image">
-          <a class="item-link" href="{% url 'escolher_modelo' 'suv' %}">
-              <div class="item-wrapper">
-                  <img src="{% static './assets/img/modelo/suv.jpg' %}" alt="" data-slide-to="0" data-bs-slide-to="0">
-                  <div class="item-content">
-                      <h2 class="card-title mbr-fonts-style display-2">
-                          SUVs
-                      </h2>
-                  </div>
-              </div>
-          </a>
+        <a class="item-link" href="{% url 'escolher_modelo' 'hatch' %}">
+            <div class="item-wrapper">
+                <img src="{% static './assets/img/modelo/hatch.jpg' %}" alt="" data-slide-to="0" data-bs-slide-to="0">
+                <div class="item-content">
+                    <h2 class="card-title mbr-fonts-style display-2">
+                        HATCH
+                    </h2>
+                </div>
+            </div>
+        </a>
       </div>
+      </div>
+      </div>
+      </section>
 
-
-<div class="col-12 col-lg-6 col-md-6 item features-image">
-  <a class="item-link" href="{% url 'escolher_modelo' 'sedan' %}">
-      <div class="item-wrapper">
-          <img src="{% static './assets/img/modelo/sedaan.jpg' %}" alt="" data-slide-to="0" data-bs-slide-to="0">
-          <div class="item-content">
-              <h2 class="card-title mbr-fonts-style display-2">
-                  SEDANs
-              </h2>
-          </div>
-      </div>
-  </a>
-</div>
-<div class="col-12 col-lg-6 col-md-6 item features-image">
-  <a class="item-link" href="{% url 'escolher_modelo' 'hatch' %}">
-      <div class="item-wrapper">
-          <img src="{% static './assets/img/modelo/hatch.jpg' %}" alt="" data-slide-to="0" data-bs-slide-to="0">
-          <div class="item-content">
-              <h2 class="card-title mbr-fonts-style display-2">
-                  HATCH
-              </h2>
-          </div>
-      </div>
-  </a>
-</div>
-</div>
-</div>
-</section>
 {% endblock%}

@@ -86,3 +86,8 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['telefone', 'modelo_carro_preferido']
+        
+
+class FilialForm(forms.Form):
+    filial_primavera = forms.CharField(widget=forms.HiddenInput(), initial='primavera')
+    filial_horto = forms.CharField(widget=forms.HiddenInput(), initial='horto')

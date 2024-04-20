@@ -168,11 +168,17 @@
         <div class="loading-spinner"></div>
     </div> -->
 
+
     <section data-bs-version="5.1" class="features7 boldm5 cid-ttRnAijqXt section-hidden" id="features7-6">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-lg-6 col-md-6 item features-image active">
-                    <a class="item-link" href="{% url 'login' %}">
+                    <form id="form-filial-primavera" method="POST" action="{% url 'home' %}">
+                        {% csrf_token %}
+                        {{ form }}
+                        <input type="hidden" name="filial_primavera" value="primavera"> <!-- Definindo o valor da filial como "horto" -->
+                    </form>
+                    <a class="item-link" href="#" onclick="submitForm('form-filial-primavera'); return false;">
                         <div class="item-wrapper">
                             <img src="{% static 'assets/img/lavagem de carro II.jpg' %}" alt="" data-slide-to="1"
                             data-bs-slide-to="1">
@@ -185,19 +191,27 @@
                     </a>
                 </div>
                 <div class="col-12 col-lg-6 col-md-6 item features-image">
-                    <a class="item-link" href="{% url 'login' %}">
+                    <form id="form-filial" method="POST" action="{% url 'home' %}">
+                        {% csrf_token %}
+                        {{ form }}
+                        <input type="hidden" name="filial_primavera" value="horto"> <!-- Definindo o valor da filial como "horto" -->
+                    </form>
+                    
+                    <a class="item-link" href="#" onclick="submitForm('form-filial'); return false;">
                         <div class="item-wrapper">
                             <img src="{% static './assets/img/lavagem.avif' %}" alt="" data-slide-to="0" data-bs-slide-to="0">
                             <div class="item-content">
-                                <h2 class="perfect-wash--letra">
-                                Perfect Wash - HORTO 
-                                </h2>
+                                <h2 class="perfect-wash--letra">Perfect Wash - HORTO</h2>
                             </div>
                         </div>
                     </a>
-                </div>
-               
-
+                    
+                    <script>
+                        function submitForm(formID) {
+                            document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+                        }
+                    </script>
+                    
       
 <!--<div class="col-12 col-lg-6 col-md-6 item features-image">
             <a class="item-link" href="{% url 'login' %}">

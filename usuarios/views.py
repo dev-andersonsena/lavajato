@@ -6,11 +6,16 @@ from django.contrib import messages
 from .models import User, UserProfile
 from django.contrib.auth import authenticate, login
 from .forms import CadastroForms, UserProfileForm
+from django.contrib.auth.decorators import login_required
+from .forms import FilialForm
 
 
 
 
 
+
+
+login_required
 def login_view(request):  # Renomeie sua view para login_view
     form = LoginForms()
 
@@ -23,7 +28,7 @@ def login_view(request):  # Renomeie sua view para login_view
             if usuario is not None:
                 login(request, usuario)  # Use o login em vez de auth_login
                 messages.success(request, f'{nome} logado com sucesso!')
-                return redirect('carro')
+                return redirect('home')
             else:
                 messages.error(request, 'Erro ao efetuar login')
                 return redirect('login')
@@ -60,24 +65,28 @@ def cadastro(request):
 
     return render(request, "usuarios/cadastro.html", {"form": form})
 
+def carro(request):
+    return render(request, 'carro.html')
+
+
 def escolher_modelo(request, modelo):
-    # Verifique se o usuário está autenticado
     if request.user.is_authenticated:
-        # Obtenha o perfil do usuário atual
-        perfil_usuario = UserProfile.objects.get(user=request.user)
-        # Atualize o modelo de carro preferido do usuário
+        perfil_usuario, created = UserProfile.objects.get_or_create(user=request.user)
         perfil_usuario.modelo_carro_preferido = modelo
         perfil_usuario.save()
-        if (perfil_usuario.modelo_carro_preferido == 'caminhonete'):
-            return redirect ('tipolavagem')
-        if (perfil_usuario.modelo_carro_preferido == 'SUV'):
-            return redirect ('index')
-    
-    # Redirecione o usuário para onde você deseja após a escolha do modelo
+        
+        if perfil_usuario.modelo_carro_preferido == 'caminhonete':
+            return redirect('tipolavagem')
+        elif perfil_usuario.modelo_carro_preferido == 'suv':
+            return redirect('tipolavagem')
+        elif perfil_usuario.modelo_carro_preferido == 'sedan':
+            return redirect('tipolavagem')
+        elif perfil_usuario.modelo_carro_preferido == 'hatch':
+            return redirect('tipolavagem')
+
     return redirect('index')
 
 
-
 def logout(request):
         auth.logout(request)
         messages.success(request, "Logout efetuado com sucesso!")
@@ -90,14 +99,13 @@ def index_view(request):
 def logout(request):
         auth.logout(request)
         messages.success(request, "Logout efetuado com sucesso!")
-        return redirect('login')
+        return redirect('index')
     
 
 def index_view(request):
     return render(request, 'index.html')
 
-def carro(request):
-    return render(request, 'carro.html')
+
 
 def tipoLavagem(request):
     return render(request, 'tipoLavagem/tipolavagem.html')
@@ -125,3 +133,22 @@ def excluir_usuario(request, user_id):
 
 def calendario(request):
     return render(request, 'calendario/calendario.html')
+
+
+@login_required
+def home(request):
+    form = FilialForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            filial = form.cleaned_data.get('filial_primavera') or form.cleaned_data.get('filial_horto')
+            messages.info(request, f'Filial selecionada: {filial}')
+            print("Filial selecionada:", filial)  # Imprime no terminal do servidor
+
+
+            perfil_usuario, created = UserProfile.objects.get_or_create(user=request.user)
+            perfil_usuario.filial_preferida = filial
+            perfil_usuario.save()
+
+            return redirect('carro')
+
+    return render(request, 'home.html', {'form': form})

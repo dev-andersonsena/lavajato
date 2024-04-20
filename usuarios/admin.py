@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from .models import UserProfile, User
+from .models import UserProfile, User, Funcionario
 
 # Define um novo admin para User que estende o admin padrão do Django
 class UserAdmin(BaseUserAdmin):
@@ -11,3 +11,4 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.register(User, UserAdmin)
 admin.site.register(UserProfile)
+admin.site.register(Funcionario)

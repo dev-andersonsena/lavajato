@@ -1,0 +1,85 @@
+.logm {
+  width: 48px; /* Largura desejada para o logotipo */
+  height: auto; /* Altura automática para manter a proporção da imagem */
+}
+
+.perfect-wash--letra {
+  margin-top: 128%;
+  font-size: large;
+}
+
+.item-tipo {
+  color: #080956;
+}
+c
+
+
+
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  #calendar {
+    width: 300px;
+    margin: 50px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .day {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .day:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .selected {
+    background-color: #4285f4;
+    color: #fff;
+    border-color: #4285f4;
+  }
+  
+  .month {
+    text-align: center;
+    padding: 10px;
+    background-color: #4285f4;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  .weekdays {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 5px 10px;
+  }
+  
+  .weekday {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .events {
+    margin-top: 10px;
+    padding: 10px;
+  }
+  
+  .event {
+    background-color: #4285f4;
+    color: #fff;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+  }
+  
