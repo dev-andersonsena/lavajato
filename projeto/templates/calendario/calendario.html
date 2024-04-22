@@ -1,55 +1,75 @@
-{% load static %}
+{%load static %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="{% static './assets/css/lavagem/calendario.css' %}">
+    <link rel="stylesheet" href="{% static './assets/css/lavagem/calendario.css' %}">
+</head>
+<body>
 
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendário</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="calendario">
-        <div class="mes">
-            <h2>Março 2024</h2>
+    <a href="{% static 'assets/img/calendario/segunda-feira.png' %}" alt="Mythrill" target="_blank">
+        <div class="card">
+          <div class="wrapper">
+            <img src="{% static 'assets/img/calendario/segunda-feira.png' %}" class="cover-image" />
+          </div>
+          <img src="" class="title" />
+          <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>D</th>
-                    <th>S</th>
-                    <th>T</th>
-                    <th>Q</th>
-                    <th>Q</th>
-                    <th>S</th>
-                    <th>S</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td>1</td>
-                    <td>2</td>
-                </tr>
-                <!-- Adicione mais linhas conforme necessário -->
-            </tbody>
-        </table>
-    </div>
+      </a>
 
-<script src="{% static './assets/js/lavagem/calendario.js' %} "></script>
+      <a href="{% static 'assets/img/calendario/terça.png' %}" alt="Mythrill" target="_blank">
+        <div class="card">
+          <div class="wrapper">
+            <img src="{% static 'assets/img/calendario/terça.png' %}" class="cover-image" />
+          </div>
+          <img src="" class="title" />
+          <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
+        </div>
+      </a>
+
+      <a href="{% static 'assets/img/calendario/quarta.png' %}" alt="Mythrill" target="_blank">
+        <div class="card">
+          <div class="wrapper">
+            <img src="{% static 'assets/img/calendario/quarta.png' %}" class="cover-image" />
+          </div>
+          <img src="" class="title" />
+          <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
+        </div>
+      </a>
+
+      <a href="{% static 'assets/img/calendario/quinta.png' %}" alt="Mythrill" target="_blank">
+        <div class="card">
+          <div class="wrapper">
+            <img src="{% static 'assets/img/calendario/quinta.png' %}" class="cover-image" />
+          </div>
+          <img src="" class="title" />
+          <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
+        </div>
+      </a>
+
+      <a href="{% static 'assets/img/calendario/sexta.png' %}" alt="Mythrill" target="_blank">
+        <div class="card">
+          <div class="wrapper">
+            <img src="{% static 'assets/img/calendario/sexta.png' %}" class="cover-image" />
+          </div>
+          <img src="" class="title" />
+          <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
+        </div>
+      </a>
+
+      <a href="{% static 'assets/img/calendario/sabado.png' %}" alt="Mythrill" target="_blank">
+        <div class="card">
+          <div class="wrapper">
+            <img src="{% static 'assets/img/calendario/sabado.png' %}" class="cover-image" />
+          </div>
+          <img src="" class="title" />
+          <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
+        </div>
+      </a>
+      <script src="{% static './assets/js/lavagem/calendario.js' %} "></script>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import LoginForms, CadastroForms
+from .forms import DiaSemanaForm, LoginForms, CadastroForms, TipoLavagemForm
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
@@ -9,9 +9,17 @@ from .forms import CadastroForms, UserProfileForm
 from django.contrib.auth.decorators import login_required
 from .forms import FilialForm
 
+def index_view(request):
+    return render(request, 'index.html')
 
+def carro(request):
+    return render(request, 'carro.html')
 
+def calendario(request):
+    return render(request, 'calendario/calendario.html')
 
+def horario(request):
+    return render(request, 'calendario/escolher_horario.html')
 
 
 
@@ -65,8 +73,7 @@ def cadastro(request):
 
     return render(request, "usuarios/cadastro.html", {"form": form})
 
-def carro(request):
-    return render(request, 'carro.html')
+
 
 
 def escolher_modelo(request, modelo):
@@ -93,47 +100,13 @@ def logout(request):
         return redirect('login')
     
 
-def index_view(request):
-    return render(request, 'index.html')
 
-def logout(request):
+
+#def logout(request):
         auth.logout(request)
         messages.success(request, "Logout efetuado com sucesso!")
         return redirect('index')
     
-
-def index_view(request):
-    return render(request, 'index.html')
-
-
-
-def tipoLavagem(request):
-    return render(request, 'tipoLavagem/tipolavagem.html')
-
-from django.shortcuts import get_object_or_404
-from .models import User, UserProfile
-
-def excluir_usuario(request, user_id):
-    # Obtenha o usuário que será excluído
-    user = get_object_or_404(User, pk=user_id)
-
-    # Verifique se existe um UserProfile relacionado ao usuário
-    if hasattr(user, 'userprofile'):
-        # Obtenha o UserProfile relacionado
-        user_profile = user.userprofile
-
-        # Exclua o UserProfile
-        user_profile.delete()
-
-    # Agora você pode excluir o usuário
-    user.delete()
-
-    # Redirecione para onde você quiser após a exclusão
-    return redirect('index')
-
-def calendario(request):
-    return render(request, 'calendario/calendario.html')
-
 
 @login_required
 def home(request):
@@ -152,3 +125,37 @@ def home(request):
             return redirect('carro')
 
     return render(request, 'home.html', {'form': form})
+
+
+def tipoLavagem(request):
+    if request.method == 'POST':
+        form = TipoLavagemForm(request.POST)
+        if form.is_valid():
+            tipo_lavagem_selecionado = form.cleaned_data['tipo_lavagem']
+            perfil_usuario = request.user.userprofile
+            perfil_usuario.tipo_lavagem = tipo_lavagem_selecionado
+            perfil_usuario.save()
+            print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
+            return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
+    else:
+        form = TipoLavagemForm()
+    return render(request, 'tipolavagem/tipolavagem.html', {'form': form})
+  
+def calendario(request):
+    if request.method == 'POST':
+        form = DiaSemanaForm(request.POST)
+        if form.is_valid():
+            dia_semana_selecionado = form.cleaned_data['dia_semana']
+            perfil_usuario = request.user.userprofile
+            perfil_usuario.dia_semana = dia_semana_selecionado
+            perfil_usuario.save()
+            print(f"Lavagem selecionada: {dia_semana_selecionado}")  # Mensagem de depuração
+            return redirect('horario')  # Redireciona para a página 'horario' após salvar
+        else:
+            print("Formulário inválido:", form.errors)  # Adicione esta linha para ver os erros de validação do formulário
+    else:
+        form = DiaSemanaForm()
+    return render(request, 'calendario/calendario.html', {'form': form})
+
+
+

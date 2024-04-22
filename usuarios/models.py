@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from .modelo_carro import MODELOS_CARRO_CHOICES
+from .modelo_carro import MODELOS_CARRO_CHOICES, TIPOS_LAVAGEM_CHOICES, DIA_SEMANA_CHOICES
 
 class User(AbstractUser):
     pass
@@ -10,10 +10,12 @@ class UserProfile(models.Model):
     telefone = models.CharField(max_length=15)
     modelo_carro_preferido = models.CharField(max_length=20, choices=MODELOS_CARRO_CHOICES, default='')
     filial_preferida = models.CharField(max_length=100, blank=True, null=True)
-
+    tipo_lavagem = models.CharField(max_length=100, choices=TIPOS_LAVAGEM_CHOICES, default='')
+    dia_semana = models.CharField(max_length=20, choices=DIA_SEMANA_CHOICES, default='')  # Adicione este campo
 
     def __str__(self):
         return self.user.username
+
 
 #####  formação de duplas de funcionarios #####3
 
@@ -28,12 +30,3 @@ class Funcionario(models.Model):
 #####  formação de duplas de funcionarios #####3
 
 
-####   tipos de lavagem #######
-
-class TipoLavagem(models.Model):
-    tipo_lavagem = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.nom
-
-###### fim tipo lavagem ###########

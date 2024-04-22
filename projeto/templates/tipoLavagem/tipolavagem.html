@@ -34,13 +34,18 @@
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <a class="btn btn-secondary display-4" href="#" onclick="submitForm('LAVAGEM TECNICA'); return false;">
-                            <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
-                            ESCOLHER
-                        </a>
+                        <form id="form-lavagem" method="POST" action="{% url 'tipolavagem' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input" value="">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
+                                ESCOLHER
+                            </a>
+                        </form>
                     </div>
                 </div>
             </div>
+        
             <div class="col-12 col-lg-4 col-md-6 card">
                 <div class="card-wrapper">
                     <div class="price-wrapper">
@@ -64,13 +69,23 @@
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <a class="btn btn-secondary display-4" href="#">
-                            <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
-                            ESCOLHER
-                        </a>
+                        <form id="form-lavagem" method="POST" action="{% url 'tipolavagem' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input" value="">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
+                                ESCOLHER
+                            </a>
+                        </form>
                     </div>
                 </div>
             </div>
+            <script>
+                function submitForm(formID) {
+                    document.getElementById('tipo-lavagem-input').value = 'LIMPEZA_DETALHADA';
+                    document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+                }
+            </script>
             <div class="col-12 col-lg-4 col-md-6 card">
                 <div class="card-wrapper">
                     <div class="price-wrapper">
@@ -93,8 +108,11 @@
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <a class="btn btn-secondary display-4" href="#">
-                            <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
+                        <form id="form-lavagem" method="POST" action="{% url 'tipolavagem' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input" value="">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
                             ESCOLHER
                         </a>
                     </div>
@@ -102,6 +120,12 @@
             </div>
         </div>
     </div>
+    <script>
+        function submitForm(formID) {
+            document.getElementById('tipo-lavagem-input').value = 'LIMPEZA DETALHADA + PROTECAO';
+            document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+        }
+    </script>
     <!--############################################3-->
     <section data-bs-version="5.1" class="pricing1 boldm5 cid-ttRnSl4kMw" id="pricing2-c">
     <div class="container-fluid">

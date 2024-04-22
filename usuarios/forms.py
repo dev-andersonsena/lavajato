@@ -1,5 +1,7 @@
 from django import forms
 from .models import UserProfile
+from .models import TIPOS_LAVAGEM_CHOICES, DIA_SEMANA_CHOICES
+
 
 class LoginForms(forms.Form):
     nome_login=forms.CharField(
@@ -91,3 +93,9 @@ class UserProfileForm(forms.ModelForm):
 class FilialForm(forms.Form):
     filial_primavera = forms.CharField(widget=forms.HiddenInput(), initial='primavera')
     filial_horto = forms.CharField(widget=forms.HiddenInput(), initial='horto')
+    
+class TipoLavagemForm(forms.Form):
+    tipo_lavagem = forms.ChoiceField(choices=TIPOS_LAVAGEM_CHOICES, widget=forms.RadioSelect)
+    
+class DiaSemanaForm(forms.Form):
+    dia_semana = forms.ChoiceField(choices=DIA_SEMANA_CHOICES, widget=forms.RadioSelect)
