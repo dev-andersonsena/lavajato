@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import DiaSemanaForm, LoginForms, CadastroForms, TipoLavagemForm
+from .forms import DiaSemanaForm, LoginForms, CadastroForms, TipoLavagemForm, HorarioSemanaForm
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
@@ -18,8 +18,7 @@ def carro(request):
 def calendario(request):
     return render(request, 'calendario/calendario.html')
 
-def horario(request):
-    return render(request, 'calendario/escolher_horario.html')
+
 
 
 
@@ -157,5 +156,21 @@ def calendario(request):
         form = DiaSemanaForm()
     return render(request, 'calendario/calendario.html', {'form': form})
 
+
+def horario(request):
+    if request.method == 'POST':
+        form = HorarioSemanaForm(request.POST)
+        if form.is_valid():
+            hora_semana_selecionado = form.cleaned_data['horario_semana']
+            perfil_usuario = request.user.userprofile
+            perfil_usuario.dia_semana = hora_semana_selecionado
+            perfil_usuario.save()
+            print(f"dia selecionado: {hora_semana_selecionado}")  # Mensagem de depuração
+            return redirect('index')  # Redireciona para a página 'horario' após salvar
+        else:
+            print("Formulário inválido:", form.errors)  # Adicione esta linha para ver os erros de validação do formulário
+    else:
+        form = HorarioSemanaForm()
+    return render(request, 'calendario/escolher_horario.html', {'form': form})
 
 

@@ -22,3 +22,26 @@ DIA_SEMANA_CHOICES = [
     ('sabado', 'Sábado'),
     ('domingo', 'Domingo'),
 ]
+
+DIA_SEMANA_CHOICES = [
+    ('segunda', 'Segunda-feira'),
+    ('terca', 'Terça-feira'),
+    ('quarta', 'Quarta-feira'),
+    ('quinta', 'Quinta-feira'),
+    ('sexta', 'Sexta-feira'),
+    ('sabado', 'Sábado'),
+    ('domingo', 'Domingo'),
+]
+
+HORARIO_SEMANA_CHOICES = [
+    ('08:00', '08:00M'),
+    ('09:00', '09:00M'),
+    ('10:00', '10:00M'),
+    ('11:00', '11:00M'),
+    ('12:00', '12:00M'),
+    ('13:00', '13:00T'),
+    ('14:00', '14:00T'),
+    ('15:00', '15:00T'),
+    ('16:00', '16:00T'),
+    
+]

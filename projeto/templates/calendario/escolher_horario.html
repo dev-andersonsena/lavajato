@@ -10,6 +10,10 @@
 
 </head>
 <body>
+  <form id="myForm1" method="POST" action="{% url 'calendario' %}" style="display: inline;">
+    {% csrf_token %}
+    <input type="hidden" name="dia_semana" id="dia_semana_input1" value="segunda">
+
     <div id="container">
         <button class="learn-more">
           <span class="circle" aria-hidden="true">

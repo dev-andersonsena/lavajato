@@ -1,6 +1,6 @@
 from django import forms
 from .models import UserProfile
-from .models import TIPOS_LAVAGEM_CHOICES, DIA_SEMANA_CHOICES
+from .models import TIPOS_LAVAGEM_CHOICES, DIA_SEMANA_CHOICES, HORARIO_SEMANA_CHOICES
 
 
 class LoginForms(forms.Form):
@@ -99,3 +99,6 @@ class TipoLavagemForm(forms.Form):
     
 class DiaSemanaForm(forms.Form):
     dia_semana = forms.ChoiceField(choices=DIA_SEMANA_CHOICES, widget=forms.RadioSelect)
+    
+class HorarioSemanaForm(forms.Form):
+    horario_semana = forms.ChoiceField(choices=HORARIO_SEMANA_CHOICES, widget=forms.RadioSelect)
