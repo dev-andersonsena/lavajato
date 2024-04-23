@@ -149,7 +149,7 @@ def calendario(request):
             perfil_usuario = request.user.userprofile
             perfil_usuario.dia_semana = dia_semana_selecionado
             perfil_usuario.save()
-            print(f"Lavagem selecionada: {dia_semana_selecionado}")  # Mensagem de depuração
+            print(f"dia selecionado: {dia_semana_selecionado}")  # Mensagem de depuração
             return redirect('horario')  # Redireciona para a página 'horario' após salvar
         else:
             print("Formulário inválido:", form.errors)  # Adicione esta linha para ver os erros de validação do formulário

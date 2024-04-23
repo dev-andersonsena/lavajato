@@ -10,66 +10,127 @@
 </head>
 <body>
 
-    <a href="{% static 'assets/img/calendario/segunda-feira.png' %}" alt="Mythrill" target="_blank">
+  <form id="myForm1" method="POST" action="{% url 'calendario' %}" style="display: inline;">
+    {% csrf_token %}
+    <input type="hidden" name="dia_semana" id="dia_semana_input1" value="segunda">
+    <a href="#" onclick="submitForm('myForm1');" alt="Mythrill">
         <div class="card">
-          <div class="wrapper">
-            <img src="{% static 'assets/img/calendario/segunda-feira.png' %}" class="cover-image" />
-          </div>
-          <img src="" class="title" />
-          <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
+            <div class="wrapper">
+                <img src="{% static 'assets/img/calendario/segunda-feira.png' %}" class="cover-image" />
+            </div>
+            <img src="" class="title" />
+            <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
         </div>
-      </a>
+    </a>
+</form>
+<script>
+    function submitForm(formID) {
+        document.getElementById('dia_semana_input1').value = 'segunda';
+        document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+    }
+</script>
 
-      <a href="{% static 'assets/img/calendario/terça.png' %}" alt="Mythrill" target="_blank">
+<form id="myForm2" method="POST" action="{% url 'calendario' %}" style="display: inline;">
+    {% csrf_token %}
+    <input type="hidden" name="dia_semana" id="dia_semana_input2" value="terca">
+    <a href="#" onclick="submitForm2('myForm2');" alt="Mythrill">
         <div class="card">
-          <div class="wrapper">
-            <img src="{% static 'assets/img/calendario/terça.png' %}" class="cover-image" />
-          </div>
-          <img src="" class="title" />
-          <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
+            <div class="wrapper">
+                <img src="{% static 'assets/img/calendario/terça.png' %}" class="cover-image" />
+            </div>
+            <img src="" class="title" />
+            <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
         </div>
-      </a>
+    </a>
+</form>
+<script>
+    function submitForm2(formID) {
+        document.getElementById('dia_semana_input2').value = 'terca';
+        document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+    }
+</script>
 
-      <a href="{% static 'assets/img/calendario/quarta.png' %}" alt="Mythrill" target="_blank">
-        <div class="card">
+<form id="myForm3" method="POST" action="{% url 'calendario' %}" style="display: inline;">
+  {% csrf_token %}
+  <input type="hidden" name="dia_semana" id="dia_semana_input3" value="quarta">
+  <a href="#" onclick="submitForm('myForm3');" alt="Mythrill">
+      <div class="card">
           <div class="wrapper">
-            <img src="{% static 'assets/img/calendario/quarta.png' %}" class="cover-image" />
+              <img src="{% static 'assets/img/calendario/quarta.png' %}" class="cover-image" />
           </div>
           <img src="" class="title" />
           <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
-        </div>
-      </a>
+      </div>
+  </a>
+</form>
+<script>
+  function submitForm(formID) {
+      document.getElementById('dia_semana_input3').value = 'quarta';
+      document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+  }
+</script>
 
-      <a href="{% static 'assets/img/calendario/quinta.png' %}" alt="Mythrill" target="_blank">
-        <div class="card">
+<form id="myForm4" method="POST" action="{% url 'calendario' %}" style="display: inline;">
+  {% csrf_token %}
+  <input type="hidden" name="dia_semana" id="dia_semana_input4" value="quinta">
+  <a href="#" onclick="submitForm2('myForm4');" alt="Mythrill">
+      <div class="card">
           <div class="wrapper">
-            <img src="{% static 'assets/img/calendario/quinta.png' %}" class="cover-image" />
+              <img src="{% static 'assets/img/calendario/quinta.png' %}" class="cover-image" />
           </div>
           <img src="" class="title" />
           <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
-        </div>
-      </a>
+      </div>
+  </a>
+</form>
+<script>
+  function submitForm2(formID) {
+      document.getElementById('dia_semana_input4').value = 'quinta';
+      document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+  }
+</script>
 
-      <a href="{% static 'assets/img/calendario/sexta.png' %}" alt="Mythrill" target="_blank">
-        <div class="card">
-          <div class="wrapper">
-            <img src="{% static 'assets/img/calendario/sexta.png' %}" class="cover-image" />
-          </div>
-          <img src="" class="title" />
-          <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
-        </div>
-      </a>
 
-      <a href="{% static 'assets/img/calendario/sabado.png' %}" alt="Mythrill" target="_blank">
-        <div class="card">
+<form id="myForm5" method="POST" action="{% url 'calendario' %}" style="display: inline;">
+  {% csrf_token %}
+  <input type="hidden" name="dia_semana" id="dia_semana_input5" value="sexta">
+  <a href="#" onclick="submitForm('myForm5');" alt="Mythrill">
+      <div class="card">
           <div class="wrapper">
-            <img src="{% static 'assets/img/calendario/sabado.png' %}" class="cover-image" />
+              <img src="{% static 'assets/img/calendario/sexta.png' %}" class="cover-image" />
           </div>
           <img src="" class="title" />
           <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
-        </div>
-      </a>
-      <script src="{% static './assets/js/lavagem/calendario.js' %} "></script>
+      </div>
+  </a>
+</form>
+<script>
+  function submitForm(formID) {
+      document.getElementById('dia_semana_input5').value = 'sexta';
+      document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+  }
+</script>
+
+<form id="myForm6" method="POST" action="{% url 'calendario' %}" style="display: inline;">
+  {% csrf_token %}
+  <input type="hidden" name="dia_semana" id="dia_semana_input6" value="sabado">
+  <a href="#" onclick="submitForm2('myForm6');" alt="Mythrill">
+      <div class="card">
+          <div class="wrapper">
+              <img src="{% static 'assets/img/calendario/sabado.png' %}" class="cover-image" />
+          </div>
+          <img src="" class="title" />
+          <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
+      </div>
+  </a>
+</form>
+<script>
+  function submitForm2(formID) {
+      document.getElementById('dia_semana_input6').value = 'sabado';
+      document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+  }
+</script>
+
 
 </body>
 </html>
