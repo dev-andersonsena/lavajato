@@ -14,9 +14,18 @@ class UserProfile(models.Model):
     dia_semana = models.CharField(max_length=20, choices=DIA_SEMANA_CHOICES, default='')  # Adicione este campo
     horario = models.CharField(max_length=20, choices=HORARIO_SEMANA_CHOICES, default='')  # Adicione este campo
 
+    class Meta:
+        verbose_name = 'Relatórios de Agendamento'
 
     def __str__(self):
         return self.user.username
+    
+class Agendamento(models.Model):
+    usuario = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    data_agendamento = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Agendamento de {self.usuario.user.username} em {self.data_agendamento}"
 
 
 #####  formação de duplas de funcionarios #####3
