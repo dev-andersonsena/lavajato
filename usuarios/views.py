@@ -163,7 +163,7 @@ def horario(request):
         if form.is_valid():
             hora_semana_selecionado = form.cleaned_data['horario_semana']
             perfil_usuario = request.user.userprofile
-            perfil_usuario.dia_semana = hora_semana_selecionado
+            perfil_usuario.horario = hora_semana_selecionado
             perfil_usuario.save()
             print(f"dia selecionado: {hora_semana_selecionado}")  # Mensagem de depuração
             return redirect('index')  # Redireciona para a página 'horario' após salvar
