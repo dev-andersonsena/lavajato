@@ -17,7 +17,7 @@
                             
                         </p>
                         <p class="mbr-price mbr-fonts-style display-1">
-                            60
+                            90
                             <span>R$</span>
                         </p>
                         <h3 class="mbr-section-title mbr-fonts-style display-5">
@@ -58,7 +58,7 @@
 
                         </p>
                         <p class="mbr-price_1 mbr-fonts-style display-1">
-                            500
+                            550
                             <span>R$</span>
                         </p>
                         <h3 class="mbr-section-title_1 mbr-fonts-style display-5">
@@ -97,7 +97,7 @@
                         <p class="mbr-desc mbr-fonts-style display-4">
                         </p>
                         <p class="mbr-price mbr-fonts-style display-1">
-                            700
+                            750
                             <span>R$</span>
                         </p>
                         <h3 class="mbr-section-title mbr-fonts-style display-5">
@@ -143,7 +143,7 @@
                             
                         </p>
                         <p class="mbr-price mbr-fonts-style display-1">
-                            450
+                            650
                             <span>R$</span>
                         </p>
                         <h3 class="mbr-section-title mbr-fonts-style display-5">
@@ -182,7 +182,7 @@
 
                         </p>
                         <p class="mbr-price_1 mbr-fonts-style display-1">
-                            100
+                            120
                             <span>R$</span>
                         </p>
                         <h3 class="mbr-section-title_1 mbr-fonts-style display-5">
@@ -236,7 +236,7 @@
                     <div class="mbr-section-btn">
                         <form id="form-lavagem6" method="POST" action="{% url 'tipolavagem' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input6" value="HIGIENIZAÇÃO_DE_BANCOS_COURO">
+                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input6" value="HIGIENIZAÇÃO_DE_BANCOS">
                             <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem6'); return false;">
                             ESCOLHER
                         </a>
@@ -246,7 +246,7 @@
             </div>
             <script>
             function submitForm(formID) {
-                document.getElementById('tipo-lavagem-input6').value = 'HIGIENIZAÇÃO_DE_BANCOS_COURO';
+                document.getElementById('tipo-lavagem-input6').value = 'HIGIENIZAÇÃO_DE_BANCOS';
                 document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
             }
         </script>
@@ -254,10 +254,10 @@
     </div>
 
 
-
-
 </div>
 </div>
+
+
 <!--#############################3#################3##################3###3##################3##-->
 <section data-bs-version="5.1" class="pricing1 boldm5 cid-ttRnSl4kMw" id="pricing2-c">
     <div class="container-fluid">
@@ -502,10 +502,10 @@
             document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
         }
     </script>
-</div>  
 
 </section>
 
+    
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-lg-4 col-md-6 card">
@@ -550,6 +550,7 @@
     
 </script>
 </div>
+</section>
 </section>
 </section>
 {% endblock%}

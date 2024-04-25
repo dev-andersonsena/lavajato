@@ -38,6 +38,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="tipo_lavagem" id="tipo-input1" value="LAVAGEM_TECNICA">
                             <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-l1'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
                             ESCOLHER
                         </a>
                         </form>
@@ -78,6 +79,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input2" value="LIMPEZA_DETALHADA">
                             <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem2'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
                             ESCOLHER
                         </a>
                         </form>
@@ -117,6 +119,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input3" value="LIMPEZA_DETALHADA_PROTECAO">
                             <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem3'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
                             ESCOLHER
                         </a>
                         </form>
@@ -161,6 +164,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input4" value="POLIMENTO_TECNICO_PROTECAO_6_M">
                             <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem4'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
                             ESCOLHER
                         </a>
                         </form>
@@ -200,6 +204,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input5" value="LIMPEZA_CHASSI_DETALHADA">
                             <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem5'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
                             ESCOLHER
                         </a>
                         </form>
@@ -236,8 +241,9 @@
                     <div class="mbr-section-btn">
                         <form id="form-lavagem6" method="POST" action="{% url 'tipolavagem' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input6" value="HIGIENIZAÇÃO_DE_BANCOS_COURO">
+                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input6" value="HIGIENIZAÇÃO_DE_BANCOS">
                             <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem6'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
                             ESCOLHER
                         </a>
                         </form>
@@ -246,7 +252,7 @@
             </div>
             <script>
             function submitForm(formID) {
-                document.getElementById('tipo-lavagem-input6').value = 'HIGIENIZAÇÃO_DE_BANCOS_COURO';
+                document.getElementById('tipo-lavagem-input6').value = 'HIGIENIZAÇÃO_DE_BANCOS';
                 document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
             }
         </script>
@@ -254,10 +260,6 @@
     </div>
 
 
-
-
-</div>
-</div>
 <!--#############################3#################3##################3###3##################3##-->
 <section data-bs-version="5.1" class="pricing1 boldm5 cid-ttRnSl4kMw" id="pricing2-c">
     <div class="container-fluid">
@@ -290,6 +292,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input7" value="LIMPEZA_DE_MOTOR_COM_ENVENIZAMENTO">
                             <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem7'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
                             ESCOLHER
                         </a>
                         </form>
@@ -327,6 +330,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input8" value="DESCONTAMINAÇÃO">
                             <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem8'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
                             ESCOLHER
                         </a>
                         </form>
@@ -365,6 +369,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input9" value="CERA_EM_PASTA">
                             <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem9'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
                             ESCOLHER
                         </a>
                         </form>
@@ -412,6 +417,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input10" value="REMOÇÃO_DE_CHUVA_ACIDA_E_VITRIFICAÇÃO_DO_PARABRIZA">
                             <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem10'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
                             ESCOLHER
                         </a>
                         </form>
@@ -449,6 +455,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input11" value="POLIMENTO_TECNICO_VITRIFICAÇÃO">
                             <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem11'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
                             ESCOLHER
                         </a>
                     </form>
@@ -487,6 +494,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input12" value="PACOTE_COMPLETO_VITRIFICAÇÃO">
                             <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem12'); return false;">
+                                <span class="mobi-mbri mobi-mbri-play mbr-iconfont mbr-iconfont-btn"></span>
                             ESCOLHER
                         </a>
                     </form>
@@ -502,54 +510,7 @@
             document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
         }
     </script>
-</div>  
-
 </section>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 col-lg-4 col-md-6 card">
-            <div class="card-wrapper">
-                <div class="price-wrapper">
-                <p class="mbr-desc mbr-fonts-style display-4">técnico - 5lug
-                </p>
-                <p class="mbr-price mbr-fonts-style display-1">
-                    140
-                    <span>R$</span>
-                </p>
-                <h3 class="mbr-section-title mbr-fonts-style display-5">
-                    HIGIENIZAÇÃO DE BANCOS
-                </h3>
-                <ul class="list mbr-fonts-style display-7">
-                    <li class="item-wrap"> </li>
-                    <li class="item-wrap"></li>
-                    <li class="item-wrap"></li>
-                    <li class="item-wrap"></li>
-                    <li class="item-wrap"></li>
-
-                </ul>
-            </div>
-            <div class="mbr-section-btn">
-                <form id="form-lavagem22" method="POST" action="{% url 'tipolavagem' %}">
-                    {% csrf_token %}
-                    <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input22" value="HIGIENIZAÇÃO_DE_BANCOS_TÉCNICO">
-                    <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem22'); return false;">
-                    ESCOLHER
-                </a>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-    <script>
-    function submitForm(formID) {
-        document.getElementById('tipo-lavagem-input22').value = 'HIGIENIZAÇÃO_DE_BANCOS_TÉCNICO';
-        document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
-    }
-    
-</script>
-</div>
 </section>
 </section>
 {% endblock%}
