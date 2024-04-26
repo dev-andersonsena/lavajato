@@ -27,8 +27,7 @@
                             <li class="item-wrap">Aspiração</li>
                             <li class="item-wrap">Pré-lavagem</li>
                             <li class="item-wrap">Limpeza de plásticos com limpador
-                                bactericida,limpeza de plásticos com limpador
-                                bactericida</li>
+                                bactericida.</li>
                             <li class="item-wrap">Selante de pneus</li>
                             <li class="item-wrap">Cera protetora</li>
                         </ul>
@@ -70,7 +69,7 @@
                                 porta malas e estepe.)</li>
                             <li class="item-tipo">lavagem técnica</li>
                             <li class="item-tipo">limpeza do motor com envernizamento</li>
-                            <li class="item-tipo">Chassi detalhado e envernizado</li>
+                            <li class="item-tipo">Chassi detalhado</li>
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
@@ -150,9 +149,12 @@
                             POLIMENTO TECNICO + PROTEÇÃO DE 6 MESES
                         </h3>
                         <ul class="list mbr-fonts-style display-7">
-                            <li class="item-wrap"></li>
-                            <li class="item-wrap"></li>
-                            <li class="item-wrap"> 
+                            <li class="item-wrap"> Lavagem</li>
+                            <li class="item-wrap"> Descontaminação</li>
+                            <li class="item-wrap"> Isolamento </li>
+                            <li class="item-wrap"> Polimento  </li>
+
+                            <li class="item-wrap"> Proteção de pintura </li>
                                 
                           
                     </div>
@@ -499,51 +501,89 @@
     </script>
 </section>
 
-    
+  
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-lg-4 col-md-6 card">
             <div class="card-wrapper">
                 <div class="price-wrapper">
-                <p class="mbr-desc mbr-fonts-style display-4">técnico - 5lug
-                </p>
-                <p class="mbr-price mbr-fonts-style display-1">
-                    140
-                    <span>R$</span>
-                </p>
-                <h3 class="mbr-section-title mbr-fonts-style display-5">
-                    HIGIENIZAÇÃO DE BANCOS
-                </h3>
-                <ul class="list mbr-fonts-style display-7">
-                    <li class="item-wrap"> </li>
-                    <li class="item-wrap"></li>
-                    <li class="item-wrap"></li>
-                    <li class="item-wrap"></li>
-                    <li class="item-wrap"></li>
+                    <p class="mbr-desc mbr-fonts-style display-4">
+                        técnico - 5lug
 
-                </ul>
+                    </p>
+                    <p class="mbr-price mbr-fonts-style display-1">
+                        140
+                        <span>R$</span>
+                    </p>
+                    <h3 class="mbr-section-title mbr-fonts-style display-5">
+                        HIGIENIZAÇÃO DE BANCOS
+                    </h3>
+                    <ul class="list mbr-fonts-style display-7">
+                        <li class="item-wrap"></li>
+                        <li class="item-wrap"></li>
+                        <li class="item-wrap"></li>
+                        <li class="item-wrap"></li>
+
+                        <li class="item-wrap"> </li>
+                            
+                      
+                </div>
+                <div class="mbr-section-btn">
+                    <form id="form-lavagem22" method="POST" action="{% url 'tipolavagem' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input22" value="HIGIENIZAÇÃO_DE_BANCOS_TÉCNICO_5L">
+                        <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem22'); return false;">
+                        ESCOLHER
+                    </a>
+                    </form>
+                </div>
             </div>
-            <div class="mbr-section-btn">
-                <form id="form-lavagem22" method="POST" action="{% url 'tipolavagem' %}">
-                    {% csrf_token %}
-                    <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input22" value="HIGIENIZAÇÃO_DE_BANCOS_TÉCNICO">
-                    <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem22'); return false;">
-                    ESCOLHER
-                </a>
-                </form>
-            </div>
+            <script>
+                function submitForm(formID) {
+                    document.getElementById('tipo-lavagem-input22').value = 'HIGIENIZAÇÃO_DE_BANCOS_TÉCNICO_5L';
+                    document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+                }
+            </script>
         </div>
-    </div>
 
 
-    <script>
-    function submitForm(formID) {
-        document.getElementById('tipo-lavagem-input22').value = 'HIGIENIZAÇÃO_DE_BANCOS_TÉCNICO';
-        document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
-    }
-    
-</script>
-</div>
+        <div class="col-12 col-lg-4 col-md-6 card">
+            <div class="card-wrapper">
+                <div class="price-wrapper">
+                    <p class="mbr-desc_1 mbr-fonts-style display-4">
+                        técnico - 7lug
+                    </p>
+                    <p class="mbr-price_1 mbr-fonts-style display-1">
+                        150 
+                        <span>R$</span>
+                    </p>
+                    <h3 class="mbr-section-title_1 mbr-fonts-style display-5">
+                        HIGIENIZAÇÃO DE BANCOS
+                    </h3>
+                    <ul class="list mbr-fonts-style display-7">
+                        <li class="item-tipo"> </li>
+                        <li class="item-tipo"></li>
+                        <li class="item-tipo"></li>
+                        <li class="item-tipo"></li>
+                    </ul>
+                </div>
+                <div class="mbr-section-btn">
+                    <form id="form-lavagem23" method="POST" action="{% url 'tipolavagem' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input23" value="HIGIENIZAÇÃO_DE_BANCOS_TÉCNICO_7L">
+                        <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem23'); return false;">
+                        ESCOLHER
+                    </a>
+                    </form>
+                </div>
+            </div>
+            <script>
+                function submitForm(formID) {
+                    document.getElementById('tipo-lavagem-input23').value = 'HIGIENIZAÇÃO_DE_BANCOS_TÉCNICO_7L';
+                    document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+                }
+            </script>	
+
 </section>
 </section>
 </section>
