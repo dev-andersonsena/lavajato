@@ -89,6 +89,8 @@ def escolher_modelo(request, modelo):
             return redirect('tipolavagemSUV')
         elif perfil_usuario.modelo_carro_preferido == 'PICAPE':
             return redirect('tipolavagemPICAPE')
+        elif perfil_usuario.modelo_carro_preferido == 'MOTO':
+            return redirect('tipolavagemMOTO')
 
     return redirect('index')
 
@@ -181,6 +183,20 @@ def tipoLavagem4(request):
     else:
         form = TipoLavagemForm()
     return render(request, 'tipolavagem/tipolavagemSUV.html', {'form': form})
+
+def tipoLavagem5(request):
+    if request.method == 'POST':
+        form = TipoLavagemForm(request.POST)
+        if form.is_valid():
+            tipo_lavagem_selecionado = form.cleaned_data['tipo_lavagem']
+            perfil_usuario = request.user.userprofile
+            perfil_usuario.tipo_lavagem = tipo_lavagem_selecionado
+            perfil_usuario.save()
+            print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
+            return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
+    else:
+        form = TipoLavagemForm()
+    return render(request, 'tipolavagem/tipolavagemMOTO.html', {'form': form})
   
 def calendario(request):
     if request.method == 'POST':

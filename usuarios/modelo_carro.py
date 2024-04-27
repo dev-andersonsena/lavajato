@@ -5,6 +5,7 @@ MODELOS_CARRO_CHOICES = (
     ('SUV', 'SUV'),
     ('SEDAN', 'SEDAN'),
     ('HATCH', 'HATCH'),
+    ('MOTO', 'MOTO'),
 )
 
 TIPOS_LAVAGEM_CHOICES = [

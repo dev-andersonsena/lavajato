@@ -1,5 +1,5 @@
 from django.urls import path
-from usuarios.views import login_view, cadastro, logout, escolher_modelo, carro, tipoLavagem, calendario, home, horario, tipoLavagem2,  tipoLavagem3, tipoLavagem4
+from usuarios.views import login_view, cadastro, logout, escolher_modelo, carro, tipoLavagem, calendario, home, horario, tipoLavagem2,  tipoLavagem3, tipoLavagem4, tipoLavagem5
 
 urlpatterns = [
     path('login', login_view, name='login'),
@@ -14,6 +14,7 @@ urlpatterns = [
     path('tipolavagemSEDAN', tipoLavagem2, name='tipolavagemSEDAN'),
     path('tipolavagemPICAPE', tipoLavagem3, name='tipolavagemPICAPE'),
     path('tipolavagemSUV', tipoLavagem4, name='tipolavagemSUV'),
+    path('tipolavagemMOTO', tipoLavagem5, name='tipolavagemMOTO'),
 
 
 

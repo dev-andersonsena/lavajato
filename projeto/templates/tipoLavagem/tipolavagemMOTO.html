@@ -1,0 +1,135 @@
+{% extends 'index.html' %}
+{%load static %}
+{% block content %}
+
+<section data-bs-version="5.1" class="pricing1 boldm5 cid-ttRnSl4kMw" id="pricing2-c">
+    
+
+    
+    
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-4 col-md-6 card">
+                <div class="card-wrapper">
+                    <div class="price-wrapper">
+                        <p class="mbr-desc mbr-fonts-style display-4">
+                            
+                        </p>
+                        <p class="mbr-price mbr-fonts-style display-1">
+                            60
+                            <span>R$</span>
+                        </p>
+                        <h3 class="mbr-section-title mbr-fonts-style display-5">
+                            LAVAGEM TECNICA
+                        </h3>
+                        <ul class="list mbr-fonts-style display-7">
+                            <li class="item-wrap">Aspiração</li>
+                            <li class="item-wrap">Pré-lavagem</li>
+                            <li class="item-wrap">Limpeza de plásticos com limpador
+                                bactericida.</li>
+                            <li class="item-wrap">Selante de pneus</li>
+                            <li class="item-wrap">Cera protetora</li>
+                            
+                        </ul>
+                    </div>
+                    <div class="mbr-section-btn">
+                        <form id="form-l1" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="tipo_lavagem" id="tipo-input1" value="LAVAGEM_TECNICA">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-l1'); return false;">
+                            ESCOLHER
+                        </a>
+                        </form>
+                    </div>
+                </div>
+                <script>
+                    function submitForm(formID) {
+                        document.getElementById('tipo-input1').value = 'LAVAGEM_TECNICA';
+                        document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+                    }
+                </script>
+            </div>
+        
+            <div class="col-12 col-lg-4 col-md-6 card">
+                <div class="card-wrapper">
+                    <div class="price-wrapper">
+                        <p class="mbr-desc_1 mbr-fonts-style display-4">
+
+                        </p>
+                        <p class="mbr-price_1 mbr-fonts-style display-1">
+                            500
+                            <span>R$</span>
+                        </p>
+                        <h3 class="mbr-section-title_1 mbr-fonts-style display-5">
+                            LIMPEZA DETALHADA
+                        </h3>
+                        <ul class="list mbr-fonts-style display-7">
+                            <li class="item-tipo">Higienização (teto, colunas, parasol,
+                                bancos, cintos, carpete,
+                                porta malas e estepe.)</li>
+                            <li class="item-tipo">lavagem técnica</li>
+                            <li class="item-tipo">limpeza do motor com envernizamento</li>
+                            <li class="item-tipo">Chassi detalhado</li>
+                        </ul>
+                    </div>
+                    <div class="mbr-section-btn">
+                        <form id="form-lavagem2" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input2" value="LIMPEZA_DETALHADA">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem2'); return false;">
+                            ESCOLHER
+                        </a>
+                        </form>
+                    </div>
+                </div>
+                <script>
+                    function submitForm(formID) {
+                        document.getElementById('tipo-lavagem-input2').value = 'LIMPEZA_DETALHADA';
+                        document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+                    }
+                </script>
+            </div>
+        
+            <div class="col-12 col-lg-4 col-md-6 card">
+                <div class="card-wrapper">
+                    <div class="price-wrapper">
+                        <p class="mbr-desc mbr-fonts-style display-4">
+                        </p>
+                        <p class="mbr-price mbr-fonts-style display-1">
+                            700
+                            <span>R$</span>
+                        </p>
+                        <h3 class="mbr-section-title mbr-fonts-style display-5">
+                            LIMPEZA DETALHADA + PROTEÇÃO
+                        </h3>
+                        <ul class="list mbr-fonts-style display-7">
+                            <li class="item-wrap">Pintura * Cera V80 (Descontaminação + selagem)</li>
+                            <li class="item-wrap">Plásticos * Revitalizador</li>
+                            <li class="item-wrap">Motor * Verniz</li>
+                            <li class="item-wrap">Chassi * Verniz</li>
+                            <li class="item-wrap">Vidros * Vitrificação + Remoção de chuva ácida</li>
+
+                        </ul>
+                    </div>
+                    <div class="mbr-section-btn">
+                        <form id="form-lavagem3" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input3" value="LIMPEZA_DETALHADA_PROTECAO">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem3'); return false;">
+                            ESCOLHER
+                        </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function submitForm(formID) {
+                document.getElementById('tipo-lavagem-input3').value = 'LIMPEZA_DETALHADA_PROTECAO';
+                document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+            }
+        </script>
+    </div>
+
+{% endblock %}
