@@ -7,13 +7,13 @@ urlpatterns = [
     path('logout', logout, name='logout'),
     path('escolher-modelo/<str:modelo>/', escolher_modelo, name='escolher_modelo'),
     path('carro', carro, name='carro'),
-    path('tipolavagem', tipoLavagem, name='tipolavagem'),
+    path('tipolavagemHATCH', tipoLavagem, name='tipolavagemHATCH'),
     path('calendario', calendario, name='calendario'),
     path('home', home, name='home'),
     path('horario', horario, name='horario'),
-    path('tipolavagem#2', tipoLavagem2, name='tipolavagem#2'),
-    path('tipolavagem#3', tipoLavagem3, name='tipolavagem#3'),
-    path('tipolavagem#4', tipoLavagem4, name='tipolavagem#4'),
+    path('tipolavagemSEDAN', tipoLavagem2, name='tipolavagemSEDAN'),
+    path('tipolavagemPICAPE', tipoLavagem3, name='tipolavagemPICAPE'),
+    path('tipolavagemSUV', tipoLavagem4, name='tipolavagemSUV'),
 
 
 

@@ -82,13 +82,13 @@ def escolher_modelo(request, modelo):
         perfil_usuario.save()
         
         if perfil_usuario.modelo_carro_preferido == 'HATCH':
-            return redirect('tipolavagem')
+            return redirect('tipolavagemHATCH')
         elif perfil_usuario.modelo_carro_preferido == 'SEDAN':
-            return redirect('tipolavagem#2')
+            return redirect('tipolavagemSEDAN')
         elif perfil_usuario.modelo_carro_preferido == 'SUV':
-            return redirect('tipolavagem#3')
+            return redirect('tipolavagemSUV')
         elif perfil_usuario.modelo_carro_preferido == 'PICAPE':
-            return redirect('tipolavagem#3')
+            return redirect('tipolavagemPICAPE')
 
     return redirect('index')
 
@@ -138,7 +138,7 @@ def tipoLavagem(request):
             return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
-    return render(request, 'tipolavagem/tipolavagem.html', {'form': form})
+    return render(request, 'tipolavagem/tipolavagemHATCH.html', {'form': form})
 
 def tipoLavagem2(request):
     if request.method == 'POST':
@@ -152,7 +152,7 @@ def tipoLavagem2(request):
             return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
-    return render(request, 'tipolavagem/tipolavagem#2.html', {'form': form})
+    return render(request, 'tipolavagem/tipolavagemSEDAN.html', {'form': form})
 
 def tipoLavagem3(request):
     if request.method == 'POST':
@@ -166,7 +166,7 @@ def tipoLavagem3(request):
             return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
-    return render(request, 'tipolavagem/tipolavagem#3.html', {'form': form})
+    return render(request, 'tipolavagem/tipolavagemPICAPE.html', {'form': form})
 
 def tipoLavagem4(request):
     if request.method == 'POST':
@@ -180,7 +180,7 @@ def tipoLavagem4(request):
             return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
-    return render(request, 'tipolavagem/tipolavagem#4.html', {'form': form})
+    return render(request, 'tipolavagem/tipolavagemSUV.html', {'form': form})
   
 def calendario(request):
     if request.method == 'POST':

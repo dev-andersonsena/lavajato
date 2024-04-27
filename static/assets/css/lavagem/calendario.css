@@ -12,6 +12,7 @@
     display: flex;
     align-items: center;
     background: #191c29;
+    flex-wrap: nowrap;
   }
   .card {
     width: var(--card-width);
