@@ -10,7 +10,7 @@ from django.urls import path  # Adicione esta importação
 class UserAdmin(BaseUserAdmin):
     model = User
     fieldsets = BaseUserAdmin.fieldsets + (
-        (None, {'fields': ('telefone',)}),
+        (None, {'fields': ('telefone', 'veículo')}),
     )
 
 admin.site.register(User, UserAdmin)

@@ -7,18 +7,20 @@ class User(AbstractUser):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    telefone = models.CharField(max_length=15)
+    telefone = models.CharField(max_length=11)
+    veiculo = models.CharField(max_length=50, blank=True, null=True)  # Alterando o nome do campo para veiculo
     modelo_carro_preferido = models.CharField(max_length=20, choices=MODELOS_CARRO_CHOICES, default='')
     filial_preferida = models.CharField(max_length=100, blank=True, null=True)
     tipo_lavagem = models.CharField(max_length=100, choices=TIPOS_LAVAGEM_CHOICES, default='')
-    dia_semana = models.CharField(max_length=20, choices=DIA_SEMANA_CHOICES, default='')  # Adicione este campo
-    horario = models.CharField(max_length=20, choices=HORARIO_SEMANA_CHOICES, default='')  # Adicione este campo
+    dia_semana = models.CharField(max_length=20, choices=DIA_SEMANA_CHOICES, default='')
+    horario = models.CharField(max_length=20, choices=HORARIO_SEMANA_CHOICES, default='')
 
     class Meta:
         verbose_name = 'Relatórios de Agendamento'
 
     def __str__(self):
         return self.user.username
+
     
 class Agendamento(models.Model):
     usuario = models.ForeignKey(UserProfile, on_delete=models.CASCADE)

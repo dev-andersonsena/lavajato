@@ -13,16 +13,18 @@
 
 <div class="pw">
     <div id="container">
+      {% if num_agendamentos < 2 %}
       <form id="horario-1" method="POST" action="{% url 'horario' %}" style="display: inline;">
-        {% csrf_token %}
-        <input type="hidden" name="horario_semana" id="horario_semana_input1" value="08:00">
-        <button class="learn-more" href="#" onclick="submitForm('horario-1');" alt="Mythrill">
-          <span class="circle" aria-hidden="true">
-            <span class="icon arrow"></span>
-          </span>
-          <span class="button-text">08:00</span>
-        </button>
+          {% csrf_token %}
+          <input type="hidden" name="horario_semana" id="horario_semana_input1" value="08:00">
+          <button class="learn-more" type="submit" alt="Mythrill">
+              <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+              </span>
+              <span class="button-text">08:00</span>
+          </button>
       </form>
+  {% endif %}
       </div>
       <script>
         function submitForm(formID) {

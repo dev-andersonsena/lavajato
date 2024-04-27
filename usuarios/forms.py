@@ -73,11 +73,23 @@ class CadastroForms(forms.Form):
     telefone = forms.CharField(
        label="telefone",
        required=True,
-       max_length=10,
+       max_length=11,
        widget=forms.TextInput(
              attrs={
                 
                "placeholder": "Digite seu telefone"
+           }
+)
+    )
+    
+    veiculo = forms.CharField(
+       label="veiculo",
+       required=True,
+       max_length=50,
+       widget=forms.TextInput(
+             attrs={
+                
+                "placeholder": "Ex: Toyota"
            }
 )
     )
