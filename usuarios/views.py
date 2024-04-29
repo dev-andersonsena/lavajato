@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+
+from usuarios.modelo_carro import HORARIO_SEMANA_CHOICES
 from .forms import DiaSemanaForm, LoginForms, CadastroForms, TipoLavagemForm, HorarioSemanaForm
 from django.contrib.auth.models import User
 from django.contrib import auth
@@ -10,6 +12,10 @@ from django.contrib.auth.decorators import login_required
 from .forms import FilialForm
 from django.db.models import Count
 from django.shortcuts import get_object_or_404
+from django.urls import reverse
+from datetime import datetime, timedelta
+
+
 
 
 
@@ -232,6 +238,7 @@ def calendario(request):
     if request.method == 'POST':
         form = DiaSemanaForm(request.POST)
         if form.is_valid():
+         
             dia_semana_selecionado = form.cleaned_data['dia_semana']
             perfil_usuario = request.user.userprofile
             perfil_usuario.dia_semana = dia_semana_selecionado
@@ -244,38 +251,11 @@ def calendario(request):
         form = DiaSemanaForm()
     return render(request, 'calendario/calendario.html', {'form': form})
 
-from django.shortcuts import get_object_or_404
 
-from django.shortcuts import get_object_or_404
 
-from django.shortcuts import get_object_or_404
 
-def horario(request):
-    if request.method == 'POST':
-        form = HorarioSemanaForm(request.POST)
-        if form.is_valid():
-            hora_semana_selecionado = form.cleaned_data['horario_semana']
-            
-            # Verifica se o usuário já possui um UserProfile
-            perfil_usuario, created = UserProfile.objects.get_or_create(user=request.user)
-            
-            # Verifica se há mais de um agendamento para o horário selecionado
-            if UserProfile.objects.filter(horario=hora_semana_selecionado).count() >= 2:
-                messages.error(request, 'O limite de agendamentos para este horário foi atingido.')
-                return redirect('pagina_de_agendamento')
-            
-            # Atualiza o horário do UserProfile do usuário
-            perfil_usuario.horario = hora_semana_selecionado
-            perfil_usuario.save()
-            
-            print(f"dia selecionado: {hora_semana_selecionado}")  # Mensagem de depuração
-            return redirect('index')  # Redireciona para a página 'horario' após salvar
-        else:
-            print("Formulário inválido:", form.errors)  # Adicione esta linha para ver os erros de validação do formulário
-    else:
-        form = HorarioSemanaForm()
-    return render(request, 'calendario/escolher_horario.html', {'form': form})
-from django.shortcuts import get_object_or_404
+
+
 
 def horario(request):
     if request.method == 'POST':
@@ -283,27 +263,23 @@ def horario(request):
         if form.is_valid():
             hora_semana_selecionado = form.cleaned_data['horario_semana']
             
-            # Verifica se o usuário já possui um UserProfile
+            # Verificar se o usuário já possui um UserProfile
             perfil_usuario, created = UserProfile.objects.get_or_create(user=request.user)
             
-            # Verifica se há mais de um agendamento para o horário selecionado
+            # Verificar se há mais de dois agendamentos para o horário selecionado
             if UserProfile.objects.filter(horario=hora_semana_selecionado).count() >= 2:
                 messages.error(request, 'O limite de agendamentos para este horário foi atingido.')
-                return redirect('escolher_horario')
+                return redirect('horario')
             
-            # Atualiza o horário do UserProfile do usuário
+            # Atualizar o UserProfile do usuário
             perfil_usuario.horario = hora_semana_selecionado
+            perfil_usuario.data_atual = datetime.now().date()  # Atualizar a data atual
             perfil_usuario.save()
             
-            print(f"dia selecionado: {hora_semana_selecionado}")  # Mensagem de depuração
-            return redirect('index')  # Redireciona para a página 'horario' após salvar
+            print(f"Dia selecionado:  Horário selecionado: {hora_semana_selecionado}")  # Mensagem de depuração
+            return redirect('index')  # Redirecionar para a página 'index' após salvar
         else:
-            print("Formulário inválido:", form.errors)  # Adicione esta linha para ver os erros de validação do formulário
+            print("Formulário inválido:", form.errors)  # Adicionar esta linha para ver os erros de validação do formulário
     else:
         form = HorarioSemanaForm()
     return render(request, 'calendario/escolher_horario.html', {'form': form})
-
-
-
-
-

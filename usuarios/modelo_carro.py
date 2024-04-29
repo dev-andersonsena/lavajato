@@ -40,15 +40,6 @@ DIA_SEMANA_CHOICES = [
     ('domingo', 'Domingo'),
 ]
 
-DIA_SEMANA_CHOICES = [
-    ('segunda', 'Segunda-feira'),
-    ('terca', 'Terça-feira'),
-    ('quarta', 'Quarta-feira'),
-    ('quinta', 'Quinta-feira'),
-    ('sexta', 'Sexta-feira'),
-    ('sabado', 'Sábado'),
-    ('domingo', 'Domingo'),
-]
 
 HORARIO_SEMANA_CHOICES = [
     ('08:00', '08:00'),

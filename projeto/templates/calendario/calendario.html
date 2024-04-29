@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="{% static './assets/css/lavagem/calendario.css' %}">
 </head>
 <body>
-
-  <form id="myForm1" method="POST" action="{% url 'calendario' %}" style="display: inline;">
+<!-- Página onde o usuário seleciona o dia da semana -->
+<form id="myForm1" method="POST" action="{% url 'calendario' %}" style="display: inline;">
     {% csrf_token %}
-    <input type="hidden" name="dia_semana" id="dia_semana_input1" value="segunda">
-    <a href="#" onclick="submitForm('myForm1');" alt="Mythrill">
+    <input type="hidden" name="dia_semana" id="dia_semana_input" value="segunda">
+    <a href="#" onclick="submitForm('myForm1', 'segunda');" alt="Mythrill">
         <div class="card">
             <div class="wrapper">
                 <img src="{% static 'assets/img/calendario/segunda-feira.png' %}" class="cover-image" />
@@ -23,9 +23,10 @@
         </div>
     </a>
 </form>
+
 <script>
-    function submitForm(formID) {
-        document.getElementById('dia_semana_input1').value = 'segunda';
+    function submitForm(formID, dia_semana) {
+        document.getElementById('dia_semana_input').value = dia_semana;
         document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
     }
 </script>

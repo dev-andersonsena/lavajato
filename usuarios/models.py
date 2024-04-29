@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from .modelo_carro import MODELOS_CARRO_CHOICES, TIPOS_LAVAGEM_CHOICES, DIA_SEMANA_CHOICES,HORARIO_SEMANA_CHOICES
+from django.utils.translation import gettext_lazy as _
 
 class User(AbstractUser):
     pass
@@ -14,6 +15,8 @@ class UserProfile(models.Model):
     tipo_lavagem = models.CharField(max_length=100, choices=TIPOS_LAVAGEM_CHOICES, default='')
     dia_semana = models.CharField(max_length=20, choices=DIA_SEMANA_CHOICES, default='')
     horario = models.CharField(max_length=20, choices=HORARIO_SEMANA_CHOICES, default='')
+    data_atual = models.DateField(null=True, blank=True)  # Adicionando o campo de data atual
+
 
     class Meta:
         verbose_name = 'Relatórios de Agendamento'
