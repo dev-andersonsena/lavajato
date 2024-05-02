@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 
 from usuarios.modelo_carro import HORARIO_SEMANA_CHOICES
-from .forms import DiaSemanaForm, LoginForms, CadastroForms, TipoLavagemForm, HorarioSemanaForm
+from .forms import DiaSemanaForm, LoginForms, CadastroForms, TipoLavagemForm, HorarioSemanaForm,AgendamentoForm
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
-from .models import User, UserProfile
+from .models import Agendamento, Semana, User, UserProfile
 from django.contrib.auth import authenticate, login
 from .forms import CadastroForms, UserProfileForm
 from django.contrib.auth.decorators import login_required
@@ -13,7 +13,7 @@ from .forms import FilialForm
 from django.db.models import Count
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
-from datetime import datetime, timedelta
+from datetime import date, timedelta
 
 
 
@@ -233,31 +233,34 @@ def tipoLavagem6(request):
     else:
         form = TipoLavagemForm()
     return render(request, 'tipolavagem/tipolavagemMOTO#2.html', {'form': form})
-  
+
+
+
+
 def calendario(request):
-    if request.method == 'POST':
-        form = DiaSemanaForm(request.POST)
-        if form.is_valid():
-         
-            dia_semana_selecionado = form.cleaned_data['dia_semana']
-            perfil_usuario = request.user.userprofile
-            perfil_usuario.dia_semana = dia_semana_selecionado
-            perfil_usuario.save()
-            print(f"dia selecionado: {dia_semana_selecionado}")  # Mensagem de depuração
-            return redirect('horario')  # Redireciona para a página 'horario' após salvar
+        # Lógica para gerar todas as datas do ano e seus respectivos dias e semanas
+       
+
+        if request.method == 'POST':
+            form = DiaSemanaForm(request.POST)
+            if form.is_valid():
+                dia_semana_selecionado = form.cleaned_data['dia_semana']
+                perfil_usuario = request.user.userprofile
+                perfil_usuario.dia_semana = dia_semana_selecionado
+                perfil_usuario.data_atual = date.today()  # Atualizar a data atual
+                perfil_usuario.save()
+                print(f"dia selecionado: {dia_semana_selecionado}")  # Mensagem de depuração
+                return redirect('horario')  # Redireciona para a página 'horario' após salvar
+            else:
+                print("Formulário inválido:", form.errors)  # Adicione esta linha para ver os erros de validação do formulário
         else:
-            print("Formulário inválido:", form.errors)  # Adicione esta linha para ver os erros de validação do formulário
-    else:
-        form = DiaSemanaForm()
-    return render(request, 'calendario/calendario.html', {'form': form})
-
-
-
-
+            form = DiaSemanaForm()
+        return render(request, 'calendario/calendario.html', {'form': form})
 
 
 
 def horario(request):
+    
     if request.method == 'POST':
         form = HorarioSemanaForm(request.POST)
         if form.is_valid():
@@ -273,13 +276,72 @@ def horario(request):
             
             # Atualizar o UserProfile do usuário
             perfil_usuario.horario = hora_semana_selecionado
-            perfil_usuario.data_atual = datetime.now().date()  # Atualizar a data atual
+            
             perfil_usuario.save()
             
-            print(f"Dia selecionado:  Horário selecionado: {hora_semana_selecionado}")  # Mensagem de depuração
+            print(f"Dia selecionado: Horário selecionado: {hora_semana_selecionado}")  # Mensagem de depuração
             return redirect('index')  # Redirecionar para a página 'index' após salvar
         else:
             print("Formulário inválido:", form.errors)  # Adicionar esta linha para ver os erros de validação do formulário
     else:
         form = HorarioSemanaForm()
     return render(request, 'calendario/escolher_horario.html', {'form': form})
+
+
+@login_required
+def testecalendario(request):
+    datas_ano = []
+    data_atual = date.today()
+    semanas = []
+    
+    for i in range(365):
+        data = data_atual + timedelta(days=i)
+        numero_semana = data.strftime('%U')
+        semana_existente = next((semana for semana in semanas if semana['numero_semana'] == numero_semana), None)
+        if not semana_existente:
+            semana_existente = {'numero_semana': numero_semana, 'datas': []}
+            semanas.append(semana_existente)
+        semana_existente['datas'].append({'data': data, 'dia_semana': data.strftime('%A'), 'numero_semana': numero_semana})
+
+    semana_atual = date.today().strftime('%U')
+    agendamento_form = AgendamentoForm()  # Defina aqui fora do bloco else
+
+    if request.method == 'POST':
+        form = DiaSemanaForm(request.POST)
+        if form.is_valid():
+            dia_semana_selecionado = form.cleaned_data['dia_semana']
+            perfil_usuario = UserProfile.objects.get(user=request.user)
+            perfil_usuario.dia_semana = dia_semana_selecionado
+            perfil_usuario.save()
+            return redirect('horario')  
+        else:
+            print("Formulário inválido:", form.errors)  
+    else:
+        form = DiaSemanaForm()
+
+    return render(request, 'calendario/testecallen.html', {'form': form, 'datas_ano': datas_ano, 'semanas': semanas, 'semana_atual': semana_atual, 'agendamento_form': agendamento_form})
+
+
+
+
+def testehorario(request):
+    if request.method == 'POST':
+        form = AgendamentoForm(request.POST)
+        if form.is_valid():
+            agendamento = form.save(commit=False)
+            hora_semana_selecionado = agendamento.horario
+            
+            # Verificar se há mais de dois agendamentos para o horário selecionado
+            if Agendamento.objects.filter(horario=hora_semana_selecionado).count() >= 2:
+                messages.error(request, 'O limite de agendamentos para este horário foi atingido.')
+                return redirect('horario')
+            
+            agendamento.save()
+            
+            print(f"Dia selecionado: Horário selecionado: {hora_semana_selecionado}")  # Mensagem de depuração
+            return redirect('index')  # Redirecionar para a página 'index' após salvar
+        else:
+            print("Formulário inválido:", form.errors)  # Adicionar esta linha para ver os erros de validação do formulário
+    else:
+        form = AgendamentoForm()
+    return render(request, 'calendario/testehora.html', {'form': form})

@@ -1,6 +1,6 @@
 from django.urls import path
 from usuarios.views import login_view, cadastro, logout, escolher_modelo, carro, tipoLavagem, calendario, home, horario, tipoLavagem2,  tipoLavagem3, tipoLavagem4, tipoLavagem5, tipoLavagem6
-
+from usuarios.views import testecalendario, testehorario
 urlpatterns = [
     path('login', login_view, name='login'),
     path('cadastro', cadastro, name='cadastro'),
@@ -16,6 +16,8 @@ urlpatterns = [
     path('tipolavagemSUV', tipoLavagem4, name='tipolavagemSUV'),
     path('tipolavagemMOTO', tipoLavagem5, name='tipolavagemMOTO'),
     path('tipolavagemMOTO#2', tipoLavagem6, name='tipolavagemMOTO#2'),
+    path('testecalen', testecalendario, name='testecalen'),
+    path('testhora', testehorario, name='testhora'),
 
 
 

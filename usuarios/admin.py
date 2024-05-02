@@ -18,10 +18,17 @@ admin.site.register(User, UserAdmin)
 admin.site.register(Funcionario)
 
 
+class AgendamentoAdmin(admin.ModelAdmin):
+    list_display = ('usuario', 'data_agendamento', 'horario')  # Especifica os campos a serem exibidos na lista
+
+admin.site.register(Agendamento, AgendamentoAdmin)
+
+
+
 @admin.register(UserProfile)
 class RelatoriosDeAgendamentosAdmin(admin.ModelAdmin):
         
-    list_display = ('user', 'telefone', 'modelo_carro_preferido', 'filial_preferida', 'tipo_lavagem', 'horario')
+    list_display = ('user', 'telefone', 'modelo_carro_preferido', 'filial_preferida', 'tipo_lavagem', 'horario', 'data_atual')
     
     def user_report_link(self, obj):
         url = reverse('admin:user_report', args=[obj.pk])

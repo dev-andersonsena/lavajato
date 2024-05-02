@@ -2,6 +2,8 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from .modelo_carro import MODELOS_CARRO_CHOICES, TIPOS_LAVAGEM_CHOICES, DIA_SEMANA_CHOICES,HORARIO_SEMANA_CHOICES
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth import get_user_model
+from django.utils import timezone
 
 class User(AbstractUser):
     pass
@@ -24,13 +26,23 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-    
+User = get_user_model()
+
 class Agendamento(models.Model):
     usuario = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    data_agendamento = models.DateField(auto_now_add=True)
+    data_agendamento = models.DateField(default=timezone.now)
+    horario = models.TimeField(default=timezone.now)
+    dia_semana = models.CharField(max_length=20, choices=DIA_SEMANA_CHOICES, default='')
+    
+    
 
     def __str__(self):
         return f"Agendamento de {self.usuario.user.username} em {self.data_agendamento}"
+    
+class Semana(models.Model):
+    numero_semana = models.PositiveSmallIntegerField(unique=True)
+    horario = models.CharField(max_length=20, choices=HORARIO_SEMANA_CHOICES)
+
 
 
 #####  formação de duplas de funcionarios #####3
