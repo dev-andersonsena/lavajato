@@ -12,7 +12,7 @@
     <div class="panel">
         {% for message in messages %}
         <div>
-            <p id='messages'>{{ message }}</p>
+            <p id='messages' class="letra">{{ message }}</p>
         </div>
         {% endfor %}
         <div class="state"><br><i class="fa fa-unlock-alt"></i><br><h1>login</h1></div>
@@ -22,7 +22,7 @@
                 <label for="nome_login" class="letr">Email:</label> <!-- Corrija o atributo 'for' -->
                 <input id="nome_login" placeholder='Nome' type="text" name="nome_login" required> <!-- Corrija o atributo 'name' -->
                 <label for="senha" class="letr">Senha:</label>
-                <input id="senha" placeholder='senha' type="password"  name="senha" required>
+                <input id="senha" placeholder='Senha' type="password"  name="senha" required>
                 <button type="submit" class="login">Login</button>
             </form>
         

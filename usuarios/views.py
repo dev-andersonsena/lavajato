@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-
 from usuarios.modelo_carro import HORARIO_SEMANA_CHOICES
 from .forms import DiaSemanaForm, LoginForms, CadastroForms, TipoLavagemForm, HorarioSemanaForm,AgendamentoForm
 from django.contrib.auth.models import User
@@ -47,7 +46,7 @@ def login_view(request):  # Renomeie sua view para login_view
             usuario = authenticate(username=nome, password=senha)
             if usuario is not None:
                 login(request, usuario)  # Use o login em vez de auth_login
-                messages.success(request, f'{nome} logado com sucesso!')
+                
                 return redirect('home')
             else:
                 messages.error(request, 'Erro ao efetuar login')
@@ -89,7 +88,7 @@ def cadastro(request):
             perfil = UserProfile.objects.create(user=usuario, telefone=telefone, veiculo=veiculo)
             print("UserProfile criado:", perfil)
             
-            messages.success(request, 'Cadastro efetuado com sucesso!')
+            
             return redirect('login')  # Redireciona para a página de login após o cadastro bem-sucedido
 
     return render(request, "usuarios/cadastro.html", {"form": form})
@@ -127,12 +126,6 @@ def logout(request):
     
 
 
-
-#def logout(request):
-        auth.logout(request)
-        messages.success(request, "Logout efetuado com sucesso!")
-        return redirect('index')
-    
 
 @login_required
 def home(request):
@@ -322,61 +315,3 @@ def horario(request):
 
 
 
-
-@login_required
-def testecalendario(request):
-    datas_ano = []
-    data_atual = date.today()
-    semanas = []
-    
-    for i in range(365):
-        data = data_atual + timedelta(days=i)
-        numero_semana = data.strftime('%U')
-        semana_existente = next((semana for semana in semanas if semana['numero_semana'] == numero_semana), None)
-        if not semana_existente:
-            semana_existente = {'numero_semana': numero_semana, 'datas': []}
-            semanas.append(semana_existente)
-        semana_existente['datas'].append({'data': data, 'dia_semana': data.strftime('%A'), 'numero_semana': numero_semana})
-
-    semana_atual = date.today().strftime('%U')
-    agendamento_form = AgendamentoForm()  # Defina aqui fora do bloco else
-
-    if request.method == 'POST':
-        form = DiaSemanaForm(request.POST)
-        if form.is_valid():
-            dia_semana_selecionado = form.cleaned_data['dia_semana']
-            perfil_usuario = UserProfile.objects.get(user=request.user)
-            perfil_usuario.dia_semana = dia_semana_selecionado
-            perfil_usuario.save()
-            return redirect('horario')  
-        else:
-            print("Formulário inválido:", form.errors)  
-    else:
-        form = DiaSemanaForm()
-
-    return render(request, 'calendario/testecallen.html', {'form': form, 'datas_ano': datas_ano, 'semanas': semanas, 'semana_atual': semana_atual, 'agendamento_form': agendamento_form})
-
-
-
-
-def testehorario(request):
-    if request.method == 'POST':
-        form = AgendamentoForm(request.POST)
-        if form.is_valid():
-            agendamento = form.save(commit=False)
-            hora_semana_selecionado = agendamento.horario
-            
-            # Verificar se há mais de dois agendamentos para o horário selecionado
-            if Agendamento.objects.filter(horario=hora_semana_selecionado).count() >= 2:
-                messages.error(request, 'O limite de agendamentos para este horário foi atingido.')
-                return redirect('horario')
-            
-            agendamento.save()
-            
-            print(f"Dia selecionado: Horário selecionado: {hora_semana_selecionado}")  # Mensagem de depuração
-            return redirect('index')  # Redirecionar para a página 'index' após salvar
-        else:
-            print("Formulário inválido:", form.errors)  # Adicionar esta linha para ver os erros de validação do formulário
-    else:
-        form = AgendamentoForm()
-    return render(request, 'calendario/testehora.html', {'form': form})

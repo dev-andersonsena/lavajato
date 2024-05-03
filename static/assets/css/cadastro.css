@@ -26,8 +26,8 @@ html, body {
   display: none;
 }
 .panel {
-  width: 340px;
-  height: 540px;
+  width: 350px;
+  height: 91%;
   -webkit-border-radius: 10px;
      -moz-border-radius: 10px;
           border-radius: 10px;
@@ -35,12 +35,12 @@ html, body {
      -moz-box-shadow: 0 0 10px black;
           box-shadow: 0 0 25px rgba(3, 231, 243, 0.3);
   background: #4d4e53;
-  margin: 75px auto;
+  margin: 45px auto;
   text-align: center;
 }
 .panel .state {
   width: 100%;
-  height: 130px;
+  height: 100px;
   color: white !important;
   font-size: 18px;
 }
@@ -80,7 +80,7 @@ html, body {
   text-align: center;
   font-weight: bold;
   color: white !important;
-  margin-top: 10px;
+  margin-top: 0px;
   -webkit-transition: background .2s;
      -moz-transition: background .2s;
        -o-transition: background .2s;

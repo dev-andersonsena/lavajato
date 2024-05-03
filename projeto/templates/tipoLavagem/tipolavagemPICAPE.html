@@ -238,9 +238,9 @@
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <form id="form-lavagem6" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                        <form id="form-lavagem6" method="POST" action="{% url 'tipolavagemPICAPE' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input6" value="HIGIENIZAÇÃO_DE_BANCOS">
+                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input6" value="HIGIENIZAÇÃO_DE_BANCOS_COURO">
                             <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem6'); return false;">
                             ESCOLHER
                         </a>
@@ -250,7 +250,7 @@
             </div>
             <script>
             function submitForm(formID) {
-                document.getElementById('tipo-lavagem-input6').value = 'HIGIENIZAÇÃO_DE_BANCOS';
+                document.getElementById('tipo-lavagem-input6').value = 'HIGIENIZAÇÃO_DE_BANCOS_COURO';
                 document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
             }
         </script>
