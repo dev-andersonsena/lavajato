@@ -10,34 +10,27 @@
 </head>
 <body>
 <!-- Página onde o usuário seleciona o dia da semana -->
-{% for semana in semanas %}
-    {% for data in semana.datas %}
-        <form id="myForm_{{ data.dia_semana }}" method="POST" action="{% url 'calendario' %}" style="display: {% if semana.numero_semana == semana_atual %} block {% else %} none {% endif %}" style="display: inline;">
-            {% csrf_token %}
-            <input type="hidden" name="dia_semana" value="{{ data.dia_semana }}">
-            <input type="hidden" name="numero_semana" value="{{ semana.numero_semana }}">
-            <a href="#" onclick="submitForm('{{ data.dia_semana }}'); return false;" alt="Mythrill">
-                <div class="card">
-                    <div class="wrapper">
-                        <img src="{% static 'assets/img/calendario/' ~ data.dia_semana ~ '.png' %}" class="cover-image" />
-                    </div>
-                    <img src="" class="title" />
-                    <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
-                    <span class="title">{{ data.dia_semana }}</span>
-                    <span class="character">{{ data.numero_semana }}</span>
-                </div>
-            </a>
-        </form>
-   
+<form id="myForm1" method="POST" action="{% url 'calendario' %}" style="display: inline;">
+    {% csrf_token %}
+    <input type="hidden" name="dia_semana" id="dia_semana_input" value="segunda">
+    <a href="#" onclick="submitForm('myForm1', 'segunda');" alt="Mythrill">
+        <div class="card">
+            <div class="wrapper">
+                <img src="{% static 'assets/img/calendario/segunda-feira.png' %}" class="cover-image" />
+            </div>
+            <img src="" class="title" />
+            <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
+        </div>
+    </a>
+</form>
 
 <script>
-    function submitForm(dia_semana) {
-        document.getElementsByName('dia_semana')[0].value = dia_semana;
-        document.getElementById('myForm_' + dia_semana).submit(); // Submete o formulário quando clicar no link
+    function submitForm(formID, dia_semana) {
+        document.getElementById('dia_semana_input').value = dia_semana;
+        document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
     }
 </script>
-{% endfor %}
-{% endfor %}
+
 <form id="myForm2" method="POST" action="{% url 'calendario' %}" style="display: inline;">
     {% csrf_token %}
     <input type="hidden" name="dia_semana" id="dia_semana_input2" value="terca">
