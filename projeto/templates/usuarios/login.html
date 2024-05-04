@@ -1,7 +1,7 @@
 <!-- login.html -->
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +23,9 @@
                 <input id="nome_login" placeholder='Nome' type="text" name="nome_login" required> <!-- Corrija o atributo 'name' -->
                 <label for="senha" class="letr">Senha:</label>
                 <input id="senha" placeholder='Senha' type="password"  name="senha" required>
+                <a class="perfect" href="{% url 'cadastro' %}">Não é cadastrado? <strong>Registre-se aqui</strong></a>
                 <button type="submit" class="login">Login</button>
+                
             </form>
         
             

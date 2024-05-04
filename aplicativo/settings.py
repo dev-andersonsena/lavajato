@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-l)-kyr=-3i$uk#cg7sn_xp)pfapfd$h&0ut!s1^lt-s6*7b#k1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["pwperfectwash.com"]
 
 # Application definition
 
@@ -75,8 +75,16 @@ WSGI_APPLICATION = 'aplicativo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'projeto',
+        'USER': 'perfectwash',
+        'PASSWORD': 'perfectwash$355',
+        'HOST': 'localhost',  # ou o endereço IP do seu servidor MySQL
+        'PORT': '3306',  # Porta padrão do MySQL
+        'OPTIONS': {
+        'charset': 'utf8mb4',
+        'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
     }
 }
 

@@ -27,12 +27,6 @@ def index_view(request):
 def carro(request):
     return render(request, 'carro.html')
 
-def calendario(request):
-    return render(request, 'calendario/calendario.html')
-
-
-
-
 
 login_required
 def login_view(request):  # Renomeie sua view para login_view
@@ -133,7 +127,7 @@ def home(request):
     if request.method == 'POST':
         if form.is_valid():
             filial = form.cleaned_data.get('filial_primavera') or form.cleaned_data.get('filial_horto')
-            messages.info(request, f'Filial selecionada: {filial}')
+            #messages.info(request, f'Filial selecionada: {filial}')
             print("Filial selecionada:", filial)  # Imprime no terminal do servidor
 
 
@@ -255,7 +249,7 @@ def calendario(request):
                 if diff >= 0:
                     delta = timedelta(days=diff)
                 else:
-                    delta = timedelta(days=6 + diff)
+                    delta = timedelta(days=7 + diff)
                 perfil_usuario.data_atual = timezone.localtime() + delta
                 perfil_usuario.save()
             print(f"Dia selecionado: {dia_semana_selecionado}")  # Mensagem de depuração
@@ -271,7 +265,7 @@ def calendario(request):
     # Verificar se já existem 2 agendamentos para o dia selecionado
     agendamentos = UserProfile.objects.filter(dia_semana=dia_semana_atual_nome).count()
     if agendamentos >= 2:
-        messages.error(request, 'Limite de agendamentos para este dia atingido. Por favor, escolha outro dia.')
+        #messages.error(request, 'Limite de agendamentos para este dia atingido. Por favor, escolha outro dia.')
         return redirect('calendario')
 
     return render(request, 'calendario/calendario.html', {'form': form, 'dia_semana_atual': dia_semana_atual_nome})
@@ -305,8 +299,11 @@ def horario(request):
             perfil_usuario.data_atual = perfil_calendario.data_atual
             perfil_usuario.save()
             
-            print(f"Dia selecionado: Horário selecionado: {horario_semana_selecionado}")  # Mensagem de depuração
-            return redirect('logout')  # Redirecionar para a página 'index' após salvar
+            logout(request)
+            return redirect('index')
+            
+            #print(f"Dia selecionado: Horário selecionado: {horario_semana_selecionado}")  # Mensagem de depuração
+            
         else:
             print("Formulário inválido:", form.errors)  # Adicionar esta linha para ver os erros de validação do formulário
     else:

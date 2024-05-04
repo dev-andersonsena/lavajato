@@ -27,14 +27,26 @@ body {
   color: #fcf900eb;
   font-size: large;
   background-color:#53861b;
+  
 }
+
+.perfect {
+    color: white;
+    background-color: transparent;
+    border: none;
+    margin-top: 0px;
+    font: inherit;
+    text-decoration: underline;
+  
+}
+
 .letr  {
   padding-left: 20px;
   display: none;
 }
 .panel {
-  width: 340px;
-  height: 440px;
+  width: 350px;
+  height: 460px;
   -webkit-border-radius: 10px;
      -moz-border-radius: 10px;
           border-radius: 10px;
@@ -87,7 +99,7 @@ body {
   text-align: center;
   font-weight: bold;
   color: white;
-  margin-top: 10px;
+  margin-top: 40px;
   -webkit-transition: background .2s;
      -moz-transition: background .2s;
        -o-transition: background .2s;
@@ -162,7 +174,7 @@ body {
   width: -webkit-calc(100% - 15px);
   width: -moz-calc(100% - 15px);
   width: calc(100% - 15px);
-  margin-bottom: 70px;
+  margin-bottom: 45px;
   color: white;   
 }
 .panel input[placeholder='Senha'][placeholder] {
