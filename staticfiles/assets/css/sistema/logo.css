@@ -1,0 +1,13 @@
+.logm {
+    width: 48px; /* Largura desejada para o logotipo */
+    height: auto; /* Altura automática para manter a proporção da imagem */
+}
+
+.perfect-wash--letra {
+    margin-top: 128%;
+    font-size: large;
+}
+
+.item-tipo {
+    color: #080956;
+}
