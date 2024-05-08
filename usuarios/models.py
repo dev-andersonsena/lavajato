@@ -26,18 +26,7 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-User = get_user_model()
 
-class Agendamento(models.Model):
-    usuario = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    data_agendamento = models.DateField(default=timezone.now)
-    horario = models.TimeField(default=timezone.now)
-    dia_semana = models.CharField(max_length=20, choices=DIA_SEMANA_CHOICES, default='')
-    
-    
-
-    def __str__(self):
-        return f"Agendamento de {self.usuario.user.username} em {self.data_agendamento}"
     
 class Semana(models.Model):
     numero_semana = models.PositiveSmallIntegerField(unique=True)

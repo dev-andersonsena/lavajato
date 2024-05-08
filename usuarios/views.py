@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from usuarios.modelo_carro import HORARIO_SEMANA_CHOICES
-from .forms import DiaSemanaForm, LoginForms, CadastroForms, TipoLavagemForm, HorarioSemanaForm,AgendamentoForm
+from .forms import DiaSemanaForm, LoginForms, CadastroForms, TipoLavagemForm, HorarioSemanaForm
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
-from .models import Agendamento, Semana, User, UserProfile
+from .models import Semana, User, UserProfile
 from django.contrib.auth import authenticate, login
 from .forms import CadastroForms, UserProfileForm
 from django.contrib.auth.decorators import login_required

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from .models import UserProfile, User, Funcionario, Agendamento
+from .models import UserProfile, User, Funcionario
 from django.utils.html import format_html
 from django.urls import reverse
 from django.urls import path  # Adicione esta importação
@@ -18,10 +18,7 @@ admin.site.register(User, UserAdmin)
 admin.site.register(Funcionario)
 
 
-class AgendamentoAdmin(admin.ModelAdmin):
-    list_display = ('usuario', 'data_agendamento', 'horario')  # Especifica os campos a serem exibidos na lista
 
-admin.site.register(Agendamento, AgendamentoAdmin)
 
 
 

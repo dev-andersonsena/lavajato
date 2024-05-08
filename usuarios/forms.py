@@ -1,5 +1,5 @@
 from django import forms
-from .models import Agendamento, UserProfile
+from .models import UserProfile
 from .models import TIPOS_LAVAGEM_CHOICES, DIA_SEMANA_CHOICES, HORARIO_SEMANA_CHOICES
 
 
@@ -118,10 +118,4 @@ class HorarioSemanaForm(forms.Form):
 
 
 
-class AgendamentoForm(forms.ModelForm):
-    class Meta:
-        model = Agendamento
-        fields = ['usuario', 'data_agendamento', 'horario']
-        widgets = {
-            'horario': forms.TimeInput(attrs={'type': 'time'})
-        }
+

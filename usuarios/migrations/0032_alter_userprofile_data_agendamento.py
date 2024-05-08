@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='userprofile',
             name='data_agendamento',
-            field=models.IntegerField(),
+            field=models.DateTimeField(),
         ),
     ]
