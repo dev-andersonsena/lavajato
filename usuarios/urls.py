@@ -1,5 +1,7 @@
 from django.urls import path
 from usuarios.views import login_view, cadastro, logout, escolher_modelo, carro, tipoLavagem, calendario, home, horario, tipoLavagem2,  tipoLavagem3, tipoLavagem4, tipoLavagem5, tipoLavagem6
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('login', login_view, name='login'),
@@ -22,3 +24,5 @@ urlpatterns = [
 
 
 ]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
