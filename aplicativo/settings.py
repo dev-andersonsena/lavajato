@@ -76,15 +76,12 @@ WSGI_APPLICATION = 'aplicativo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'projeto',
-        'USER': 'perfectwash',
-        'PASSWORD': 'perfectwash$355',
-        'HOST': 'localhost',  # ou o endereço IP do seu servidor MySQL
-        'PORT': '3306',  # Porta padrão do MySQL
-        'OPTIONS': {
-        'charset': 'utf8mb4',
-        'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        }
+        'NAME': 'perfectwash',
+        'USER': 'admin',
+        'PASSWORD': 'FN98car32Jb1tAARlnwW2ADiv28G9eMw',
+        'HOST': 'dpg-cotb4sug1b2c73de6mqg-a.oregon-postgres.render.com',  # ou o endereço IP do seu servidor MySQL
+        'PORT': '5432',  # Porta padrão do MySQL
+        
     }
 }
 
