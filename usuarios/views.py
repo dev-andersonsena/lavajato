@@ -152,7 +152,7 @@ def tipoLavagem(request):
             return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
-    return render(request, 'tipolavagem/tipolavagemHATCH.html', {'form': form})
+    return render(request, 'tipoLavagem/tipolavagemHATCH.html', {'form': form})
 
 def tipoLavagem2(request):
     if request.method == 'POST':
@@ -166,7 +166,7 @@ def tipoLavagem2(request):
             return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
-    return render(request, 'tipolavagem/tipolavagemSEDAN.html', {'form': form})
+    return render(request, 'tipoLavagem/tipolavagemSEDAN.html', {'form': form})
 
 def tipoLavagem3(request):
     if request.method == 'POST':
@@ -180,7 +180,7 @@ def tipoLavagem3(request):
             return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
-    return render(request, 'tipolavagem/tipolavagemPICAPE.html', {'form': form})
+    return render(request, 'tipoLavagem/tipolavagemPICAPE.html', {'form': form})
 
 def tipoLavagem4(request):
     if request.method == 'POST':
@@ -194,7 +194,7 @@ def tipoLavagem4(request):
             return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
-    return render(request, 'tipolavagem/tipolavagemSUV.html', {'form': form})
+    return render(request, 'tipoLavagem/tipolavagemSUV.html', {'form': form})
 
 def tipoLavagem5(request):
     if request.method == 'POST':
@@ -208,7 +208,7 @@ def tipoLavagem5(request):
             return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
-    return render(request, 'tipolavagem/tipolavagemMOTO.html', {'form': form})
+    return render(request, 'tipoLavagem/tipolavagemMOTO.html', {'form': form})
 
 def tipoLavagem6(request):
     if request.method == 'POST':
@@ -222,7 +222,7 @@ def tipoLavagem6(request):
             return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
-    return render(request, 'tipolavagem/tipolavagemMOTO#2.html', {'form': form})
+    return render(request, 'tipoLavagem/tipolavagemMOTO#2.html', {'form': form})
 
 
 

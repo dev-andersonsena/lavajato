@@ -13,10 +13,10 @@
 <form id="myForm1" method="POST" action="{% url 'calendario' %}" style="display: inline;">
     {% csrf_token %}
     <input type="hidden" name="dia_semana" id="dia_semana_input" value="segunda">
-    <a href="#" onclick="submitForm('myForm1', 'segunda');" alt="Mythrill">
+    <a href="#" onclick="submitForm('myForm1');" alt="Mythrill">
         <div class="card">
             <div class="wrapper">
-                <img src="{% static 'assets/img/calendario/segunda-feira.png' %}" class="cover-image" />
+                <img src="{% static 'assets/img/calendario/Segunda-feira.png' %}" class="cover-image" />
             </div>
             <img src="" class="title" />
             <img src="{% static 'assets/img/logo/logo.png' %}" class="character" />
@@ -25,8 +25,8 @@
 </form>
 
 <script>
-    function submitForm(formID, dia_semana) {
-        document.getElementById('dia_semana_input').value = dia_semana;
+    function submitForm2(formID) {
+        document.getElementById('dia_semana_input').value = 'segunda';
         document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
     }
 </script>
