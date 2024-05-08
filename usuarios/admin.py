@@ -25,7 +25,7 @@ admin.site.register(Funcionario)
 @admin.register(UserProfile)
 class RelatoriosDeAgendamentosAdmin(admin.ModelAdmin):
         
-    list_display = ('user', 'telefone', 'modelo_carro_preferido', 'filial_preferida', 'tipo_lavagem', 'horario', 'data_atual')
+    list_display = ('user', 'veiculo', 'modelo_carro_preferido', 'telefone', 'filial_preferida', 'tipo_lavagem', 'horario', 'data_atual')
     
     def user_report_link(self, obj):
         url = reverse('admin:user_report', args=[obj.pk])
