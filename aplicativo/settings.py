@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'aplicativo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'perfectwash',
         'USER': 'admin',
         'PASSWORD': 'FN98car32Jb1tAARlnwW2ADiv28G9eMw',
