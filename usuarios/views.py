@@ -24,11 +24,12 @@ from django.utils import timezone
 def index_view(request):
     return render(request, 'index.html')
 
+
+@login_required
 def carro(request):
     return render(request, 'carro.html')
 
 
-login_required
 def login_view(request):  # Renomeie sua view para login_view
     form = LoginForms()
 
@@ -46,7 +47,9 @@ def login_view(request):  # Renomeie sua view para login_view
                 messages.error(request, 'Erro ao efetuar login')
                 return redirect('login')
 
-    return render(request, "usuarios/login.html", {"form": form})
+    return render(request, "registration/login.html", {"form": form})
+
+
 
 def cadastro(request):
     form = CadastroForms()
@@ -120,7 +123,6 @@ def logout(request):
     
 
 
-
 @login_required
 def home(request):
     form = FilialForm(request.POST or None)
@@ -140,6 +142,7 @@ def home(request):
     return render(request, 'home.html', {'form': form})
 
 
+@login_required
 def tipoLavagem(request):
     if request.method == 'POST':
         form = TipoLavagemForm(request.POST)
@@ -154,6 +157,7 @@ def tipoLavagem(request):
         form = TipoLavagemForm()
     return render(request, 'tipoLavagem/tipolavagemHATCH.html', {'form': form})
 
+@login_required
 def tipoLavagem2(request):
     if request.method == 'POST':
         form = TipoLavagemForm(request.POST)
@@ -168,6 +172,8 @@ def tipoLavagem2(request):
         form = TipoLavagemForm()
     return render(request, 'tipoLavagem/tipolavagemSEDAN.html', {'form': form})
 
+
+@login_required
 def tipoLavagem3(request):
     if request.method == 'POST':
         form = TipoLavagemForm(request.POST)
@@ -182,6 +188,7 @@ def tipoLavagem3(request):
         form = TipoLavagemForm()
     return render(request, 'tipoLavagem/tipolavagemPICAPE.html', {'form': form})
 
+@login_required
 def tipoLavagem4(request):
     if request.method == 'POST':
         form = TipoLavagemForm(request.POST)
@@ -196,6 +203,7 @@ def tipoLavagem4(request):
         form = TipoLavagemForm()
     return render(request, 'tipoLavagem/tipolavagemSUV.html', {'form': form})
 
+@login_required
 def tipoLavagem5(request):
     if request.method == 'POST':
         form = TipoLavagemForm(request.POST)
@@ -210,6 +218,7 @@ def tipoLavagem5(request):
         form = TipoLavagemForm()
     return render(request, 'tipoLavagem/tipolavagemMOTO.html', {'form': form})
 
+@login_required
 def tipoLavagem6(request):
     if request.method == 'POST':
         form = TipoLavagemForm(request.POST)
@@ -226,9 +235,9 @@ def tipoLavagem6(request):
 
 
 
-
-
+@login_required
 def calendario(request):
+    
     if request.method == 'POST':
         form = DiaSemanaForm(request.POST)
         if form.is_valid():
@@ -272,8 +281,9 @@ def calendario(request):
 
 
 
-
+@login_required
 def horario(request):
+    
     if request.method == 'POST':
         form = HorarioSemanaForm(request.POST)
         if form.is_valid():
@@ -309,6 +319,7 @@ def horario(request):
     else:
         form = HorarioSemanaForm()
     return render(request, 'calendario/escolher_horario.html', {'form': form})
+
 
 
 

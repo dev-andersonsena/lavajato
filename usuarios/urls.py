@@ -3,8 +3,9 @@ from usuarios.views import login_view, cadastro, logout, escolher_modelo, carro,
 from django.conf.urls.static import static
 from django.conf import settings
 
+
 urlpatterns = [
-    path('login', login_view, name='login'),
+    path('login/', login_view, name='login'),
     path('cadastro', cadastro, name='cadastro'),
     path('logout', logout, name='logout'),
     path('escolher_modelo/<str:modelo>/', escolher_modelo, name='escolher_modelo'),

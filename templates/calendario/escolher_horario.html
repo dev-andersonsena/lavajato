@@ -13,8 +13,9 @@
 
   <div class="pw">
     <div id="container">
-  
-      <form id="horario-1" method="POST" action="{% url 'horario' %}" style="display: inline;">
+      
+
+      <form id="horario-1" method="POST" action="{% url 'login' %}?next=/horario" style="display: inline;">
         {% csrf_token %}
         <input type="hidden" name="horario_semana" id="horario_semana_input1" value="08:00">
         <button class="learn-more" type="button" onclick="submitForm('horario-1')" alt="Mythrill">

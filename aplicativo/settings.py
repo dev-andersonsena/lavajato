@@ -132,3 +132,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SESSION_COOKIE_SECURE = True  # Define se o cookie de sessão só deve ser enviado em conexões HTTPS
 CSRF_COOKIE_SECURE = True
 AUTH_USER_MODEL = 'usuarios.User'
+LOGIN_URL = 'login'
