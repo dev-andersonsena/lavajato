@@ -21,10 +21,6 @@ urlpatterns = [
     path('tipolavagemMOTO', tipoLavagem5, name='tipolavagemMOTO'),
     path('tipolavagemMOTO#2', tipoLavagem6, name='tipolavagemMOTO#2'),
     
-
-
-
-
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
