@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/assets/css/sistema/sistemaperfect.css' %}">
+
+</head>
+<body>
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+        
+      </div>
+      
+      <div id="content">
+      </div>
+      <div class="conteiner">
+        <span class="texto1">Agendamento Concluído</span>
+        <span class="texto2">Perfectwash</span>
+    
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          setTimeout(function() {
+            document.body.classList.add('loaded');
+          }, 3000); // Adjust the timeout as needed
+        });
+      </script>
+
+      <script>
+        function redirectToIndex() {
+          setTimeout(() => {
+            window.location.href = "{% url 'index' %}"; // Django template tag para gerar a URL
+          }, 10000); // 10000 milissegundos = 10 segundos
+        }
+      
+        // Chama a função de redirecionamento ao carregar a página
+        window.onload = redirectToIndex;
+      </script>
+      <script src="{% static '/assets/js/lavagem/agendamento.js' %} "></script>
+
+</body>
+</html>

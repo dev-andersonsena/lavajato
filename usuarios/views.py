@@ -25,6 +25,10 @@ def index_view(request):
     return render(request, 'index.html')
 
 
+def agendamento(request):
+    return render(request, 'agendamento.html')
+
+
 @login_required
 def carro(request):
     return render(request, 'carro.html')
@@ -310,7 +314,7 @@ def horario(request):
             perfil_usuario.save()
             
             logout(request)
-            return redirect('index')
+            return redirect('agendamento')
             
             #print(f"Dia selecionado: Horário selecionado: {horario_semana_selecionado}")  # Mensagem de depuração
             
