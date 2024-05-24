@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from usuarios.modelo_carro import HORARIO_SEMANA_CHOICES
-from .forms import DiaSemanaForm, LoginForms, CadastroForms, TipoLavagemForm, HorarioSemanaForm
+from .forms import DiaSemanaForm, LoginForms, CadastroForms, TipoLavagemForm, HorarioSemanaForm, TipoLavagemAdicionalForm
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
@@ -161,6 +161,7 @@ def tipoLavagem(request):
         form = TipoLavagemForm()
     return render(request, 'tipoLavagem/tipolavagemHATCH.html', {'form': form})
 
+
 @login_required
 def tipoLavagem2(request):
     if request.method == 'POST':
@@ -236,6 +237,113 @@ def tipoLavagem6(request):
     else:
         form = TipoLavagemForm()
     return render(request, 'tipoLavagem/tipolavagemMOTO#2.html', {'form': form})
+
+
+
+#  lavagens adicionais ########
+
+
+@login_required
+def tipoLavagemA(request):
+    if request.method == 'POST':
+        form = TipoLavagemAdicionalForm(request.POST)
+        if form.is_valid():
+            tipo_lavagem_selecionado = form.cleaned_data['lavagem_adicional']
+            perfil_usuario = request.user.userprofile
+            perfil_usuario.lavagem_adicional = tipo_lavagem_selecionado
+            perfil_usuario.save()
+            print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
+            return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
+    else:
+        form = TipoLavagemAdicionalForm()
+    return render(request, 'lavagemAdicional/tipolavagemHATCH_A.html', {'form': form})
+
+
+@login_required
+def tipoLavagem2A(request):
+    if request.method == 'POST':
+        form = TipoLavagemAdicionalForm(request.POST)
+        if form.is_valid():
+            tipo_lavagem_selecionado = form.cleaned_data['lavagem_adicional']
+            perfil_usuario = request.user.userprofile
+            perfil_usuario.lavagem_adicional = tipo_lavagem_selecionado
+            perfil_usuario.save()
+            print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
+            return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
+    else:
+        form = TipoLavagemAdicionalForm()
+    return render(request, 'lavagemAdicional/tipolavagemSUV_A.html', {'form': form})
+
+
+@login_required
+def tipoLavagem3A(request):
+    if request.method == 'POST':
+        form = TipoLavagemAdicionalForm(request.POST)
+        if form.is_valid():
+            tipo_lavagem_selecionado = form.cleaned_data['lavagem_adicional']
+            perfil_usuario = request.user.userprofile
+            perfil_usuario.lavagem_adicional = tipo_lavagem_selecionado
+            perfil_usuario.save()
+            print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
+            return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
+    else:
+        form = TipoLavagemAdicionalForm()
+    return render(request, 'lavagemAdicional/tipolavagemSEDAN_A.html', {'form': form})
+
+@login_required
+def tipoLavagem4A(request):
+    if request.method == 'POST':
+        form = TipoLavagemAdicionalForm(request.POST)
+        if form.is_valid():
+            tipo_lavagem_selecionado = form.cleaned_data['lavagem_adicional']
+            perfil_usuario = request.user.userprofile
+            perfil_usuario.lavagem_adicional = tipo_lavagem_selecionado
+            perfil_usuario.save()
+            print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
+            return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
+    else:
+        form = TipoLavagemAdicionalForm()
+    return render(request, 'lavagemAdicional/tipolavagemPICAPE_A.html', {'form': form})
+
+@login_required
+def tipoLavagem5A(request):
+    if request.method == 'POST':
+        form = TipoLavagemAdicionalForm(request.POST)
+        if form.is_valid():
+            tipo_lavagem_selecionado = form.cleaned_data['lavagem_adicional']
+            perfil_usuario = request.user.userprofile
+            perfil_usuario.lavagem_adicional = tipo_lavagem_selecionado
+            perfil_usuario.save()
+            print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
+            return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
+    else:
+        form = TipoLavagemAdicionalForm()
+    return render(request, 'lavagemAdicional/tipolavagemMOTO_A.html', {'form': form})
+
+@login_required
+def tipoLavagem6A(request):
+    if request.method == 'POST':
+        form = TipoLavagemAdicionalForm(request.POST)
+        if form.is_valid():
+            tipo_lavagem_selecionado = form.cleaned_data['lavagem_adicional']
+            perfil_usuario = request.user.userprofile
+            perfil_usuario.lavagem_adicional = tipo_lavagem_selecionado
+            perfil_usuario.save()
+            print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
+            return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
+    else:
+        form = TipoLavagemAdicionalForm()
+    return render(request, 'lavagemAdicional/tipolavagemMOTO2_A.html', {'form': form})
+
+
+
+
+
+
+
+###  fim das lavagens adicionais #####3
+
+
 
 
 

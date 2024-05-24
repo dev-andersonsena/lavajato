@@ -109,6 +109,9 @@ class FilialForm(forms.Form):
 class TipoLavagemForm(forms.Form):
     tipo_lavagem = forms.ChoiceField(choices=TIPOS_LAVAGEM_CHOICES, widget=forms.RadioSelect)
     
+class TipoLavagemAdicionalForm(forms.Form):
+    lavagem_adicional = forms.ChoiceField(choices=TIPOS_LAVAGEM_CHOICES, widget=forms.RadioSelect)
+    
 class DiaSemanaForm(forms.Form):
     dia_semana = forms.ChoiceField(choices=DIA_SEMANA_CHOICES, widget=forms.RadioSelect)
     

@@ -15,6 +15,7 @@ class UserProfile(models.Model):
     modelo_carro_preferido = models.CharField(max_length=20, choices=MODELOS_CARRO_CHOICES, default='')
     filial_preferida = models.CharField(max_length=100, blank=True, null=True)
     tipo_lavagem = models.CharField(max_length=100, choices=TIPOS_LAVAGEM_CHOICES, default='')
+    lavagem_adicional = models.CharField(max_length=100, choices=TIPOS_LAVAGEM_CHOICES, default='')
     dia_semana = models.CharField(max_length=20, choices=DIA_SEMANA_CHOICES, default='')
     horario = models.CharField(max_length=20, choices=HORARIO_SEMANA_CHOICES, default='')
     data_atual = models.DateField(null=True, blank=True)  # Adicionando o campo de data atual

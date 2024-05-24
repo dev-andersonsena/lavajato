@@ -17,7 +17,7 @@
                             
                         </p>
                         <p class="mbr-price mbr-fonts-style display-1">
-                            60
+                            80
                             <span>R$</span>
                         </p>
                         <h3 class="mbr-section-title mbr-fonts-style display-5">
@@ -35,43 +35,19 @@
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <form id="form-l1" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                        <form id="form-l1" method="POST" action="{% url 'tipolavagemSUV_A' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-input1" value="LAVAGEM_TECNICA">
-                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="showAlert(); return false;">
-                                ESCOLHER
-                            </a>
+                            <input type="hidden" name="lavagem_adicional" id="tipo-input1" value="LAVAGEM_TECNICA">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-l1'); return false;">
+                            ESCOLHER
+                        </a>
                         </form>
                     </div>
                 </div>
                 <script>
-                    function showAlert() {
-                        Swal.fire({
-                            title: 'Gostaria de escolher mais um tipo de lavagem?',
-                            text: 'Perfectwash',
-                            icon: 'question',
-                            showCancelButton: true,
-                            confirmButtonText: 'Sim',
-                            cancelButtonText: 'Não'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                Swal.fire('Você escolheu Sim!', '', 'success').then(() => {
-                                    window.location.href = "{% url 'tipolavagemHATCH_A' %}";
-                                });
-                                
-
-                                // Adicione a lógica aqui para permitir que o usuário escolha mais tipos de lavagem
-                            } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                window.location.href = "{% url 'calendario' %}";
-
-                                submitForm();
-                            }
-                        });
-                    }
-                
-                    function submitForm() {
+                    function submitForm(formID) {
                         document.getElementById('tipo-input1').value = 'LAVAGEM_TECNICA';
-                        document.getElementById('form-l1').submit(); // Submete o formulário
+                        document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
                     }
                 </script>
             </div>
@@ -83,7 +59,7 @@
 
                         </p>
                         <p class="mbr-price_1 mbr-fonts-style display-1">
-                            500
+                            550
                             <span>R$</span>
                         </p>
                         <h3 class="mbr-section-title_1 mbr-fonts-style display-5">
@@ -99,39 +75,16 @@
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <form id="form-lavagem2" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                        <form id="form-lavagem2" method="POST" action="{% url 'tipolavagemSUV_A' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input2" value="LIMPEZA_DETALHADA">
-                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="showAlert(); return false;">
+                            <input type="hidden" name="lavagem_adicional" id="tipo-lavagem-input2" value="LIMPEZA_DETALHADA">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem2'); return false;">
                             ESCOLHER
                         </a>
                         </form>
                     </div>
                 </div>
                 <script>
-                    function showAlert() {
-                        Swal.fire({
-                            title: 'Gostaria de escolher mais um tipo de lavagem?',
-                            text: 'Perfectwash',
-                            icon: 'question',
-                            showCancelButton: true,
-                            confirmButtonText: 'Sim',
-                            cancelButtonText: 'Não'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                Swal.fire('Você escolheu Sim!', '', 'success').then(() => {
-                                    window.location.href = "{% url 'tipolavagemHATCH_A' %}";
-                                });
-                                
-
-                                // Adicione a lógica aqui para permitir que o usuário escolha mais tipos de lavagem
-                            } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                window.location.href = "{% url 'calendario' %}";
-
-                                submitForm();
-                            }
-                        });
-                    }
                     function submitForm(formID) {
                         document.getElementById('tipo-lavagem-input2').value = 'LIMPEZA_DETALHADA';
                         document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
@@ -145,7 +98,7 @@
                         <p class="mbr-desc mbr-fonts-style display-4">
                         </p>
                         <p class="mbr-price mbr-fonts-style display-1">
-                            700
+                            750
                             <span>R$</span>
                         </p>
                         <h3 class="mbr-section-title mbr-fonts-style display-5">
@@ -161,10 +114,10 @@
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <form id="form-lavagem3" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                        <form id="form-lavagem3" method="POST" action="{% url 'tipolavagemSUV_A' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input3" value="LIMPEZA_DETALHADA_PROTECAO">
-                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="showAlert(); return false;">
+                            <input type="hidden" name="lavagem_adicional" id="tipo-lavagem-input3" value="LIMPEZA_DETALHADA_PROTECAO">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem3'); return false;">
                             ESCOLHER
                         </a>
                         </form>
@@ -173,30 +126,6 @@
             </div>
         </div>
         <script>
-
-            function showAlert() {
-                Swal.fire({
-                    title: 'Gostaria de escolher mais um tipo de lavagem?',
-                    text: 'Perfectwash',
-                    icon: 'question',
-                    showCancelButton: true,
-                    confirmButtonText: 'Sim',
-                    cancelButtonText: 'Não'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Swal.fire('Você escolheu Sim!', '', 'success').then(() => {
-                            window.location.href = "{% url 'tipolavagemHATCH_A' %}";
-                        });
-                        
-
-                        // Adicione a lógica aqui para permitir que o usuário escolha mais tipos de lavagem
-                    } else if (result.dismiss === Swal.DismissReason.cancel) {
-                        window.location.href = "{% url 'calendario' %}";
-
-                        submitForm();
-                    }
-                });
-            }
             function submitForm(formID) {
                 document.getElementById('tipo-lavagem-input3').value = 'LIMPEZA_DETALHADA_PROTECAO';
                 document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
@@ -215,7 +144,7 @@
                             
                         </p>
                         <p class="mbr-price mbr-fonts-style display-1">
-                            450
+                            650
                             <span>R$</span>
                         </p>
                         <h3 class="mbr-section-title mbr-fonts-style display-5">
@@ -228,45 +157,20 @@
                             <li class="item-wrap"> Polimento  </li>
 
                             <li class="item-wrap"> Proteção de pintura </li>
-
                                 
                           
                     </div>
                     <div class="mbr-section-btn">
-                        <form id="form-lavagem4" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                        <form id="form-lavagem4" method="POST" action="{% url 'tipolavagemSUV_A' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input4" value="POLIMENTO_TECNICO_PROTECAO_6_M">
-                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="showAlert(); return false;">
+                            <input type="hidden" name="lavagem_adicional" id="tipo-lavagem-input4" value="POLIMENTO_TECNICO_PROTECAO_6_M">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem4'); return false;">
                             ESCOLHER
                         </a>
                         </form>
                     </div>
                 </div>
                 <script>
-
-                    function showAlert() {
-                        Swal.fire({
-                            title: 'Gostaria de escolher mais um tipo de lavagem?',
-                            text: 'Perfectwash',
-                            icon: 'question',
-                            showCancelButton: true,
-                            confirmButtonText: 'Sim',
-                            cancelButtonText: 'Não'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                Swal.fire('Você escolheu Sim!', '', 'success').then(() => {
-                                    window.location.href = "{% url 'tipolavagemHATCH_A' %}";
-                                });
-                                
-
-                                // Adicione a lógica aqui para permitir que o usuário escolha mais tipos de lavagem
-                            } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                window.location.href = "{% url 'calendario' %}";
-
-                                submitForm();
-                            }
-                        });
-                    }
                     function submitForm(formID) {
                         document.getElementById('tipo-lavagem-input4').value = 'POLIMENTO_TECNICO_PROTECAO_6_M';
                         document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
@@ -282,54 +186,30 @@
 
                         </p>
                         <p class="mbr-price_1 mbr-fonts-style display-1">
-                            100
+                            150
                             <span>R$</span>
                         </p>
                         <h3 class="mbr-section-title_1 mbr-fonts-style display-5">
                             LIMPEZA CHASSI DETALHADA 
                         </h3>
                         <ul class="list mbr-fonts-style display-7">
-                            <li class="item-tipo"></li>
+                            <li class="item-tipo"> </li>
                             <li class="item-tipo"></li>
                             <li class="item-tipo"></li>
                             <li class="item-tipo"></li>
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <form id="form-lavagem5" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                        <form id="form-lavagem5" method="POST" action="{% url 'tipolavagemSUV_A' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input5" value="LIMPEZA_CHASSI_DETALHADA">
-                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="showAlert(); return false;">
+                            <input type="hidden" name="lavagem_adicional" id="tipo-lavagem-input5" value="LIMPEZA_CHASSI_DETALHADA">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem5'); return false;">
                             ESCOLHER
                         </a>
                         </form>
                     </div>
                 </div>
                 <script>
-
-                    function showAlert() {
-                        Swal.fire({
-                            title: 'Gostaria de escolher mais um tipo de lavagem?',
-                            text: 'Perfectwash',
-                            icon: 'question',
-                            showCancelButton: true,
-                            confirmButtonText: 'Sim',
-                            cancelButtonText: 'Não'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                Swal.fire('Você escolheu Sim!', '', 'success').then(() => {
-                                    window.location.href = "{% url 'tipolavagemHATCH_A' %}";
-                                });
-                                
-
-                                // Adicione a lógica aqui para permitir que o usuário escolha mais tipos de lavagem
-                            } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                window.location.href = "{% url 'calendario' %}";
-
-                                submitForm();
-                            }
-                        });
-                    }
                     function submitForm(formID) {
                         document.getElementById('tipo-lavagem-input5').value = 'LIMPEZA_CHASSI_DETALHADA';
                         document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
@@ -358,10 +238,10 @@
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <form id="form-lavagem6" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                        <form id="form-lavagem6" method="POST" action="{% url 'tipolavagemSUV_A' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input6" value="HIGIENIZAÇÃO_DE_BANCOS_COURO">
-                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="showAlert(); return false;">
+                            <input type="hidden" name="lavagem_adicional" id="tipo-lavagem-input6" value="HIGIENIZAÇÃO_DE_BANCOS_COURO">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem6'); return false;">
                             ESCOLHER
                         </a>
                         </form>
@@ -369,30 +249,6 @@
                 </div>
             </div>
             <script>
-
-                function showAlert() {
-                    Swal.fire({
-                        title: 'Gostaria de escolher mais um tipo de lavagem?',
-                        text: 'Perfectwash',
-                        icon: 'question',
-                        showCancelButton: true,
-                        confirmButtonText: 'Sim',
-                        cancelButtonText: 'Não'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire('Você escolheu Sim!', '', 'success').then(() => {
-                                window.location.href = "{% url 'tipolavagemHATCH_A' %}";
-                            });
-                            
-
-                            // Adicione a lógica aqui para permitir que o usuário escolha mais tipos de lavagem
-                        } else if (result.dismiss === Swal.DismissReason.cancel) {
-                            window.location.href = "{% url 'calendario' %}";
-
-                            submitForm();
-                        }
-                    });
-                }
             function submitForm(formID) {
                 document.getElementById('tipo-lavagem-input6').value = 'HIGIENIZAÇÃO_DE_BANCOS_COURO';
                 document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
@@ -402,10 +258,10 @@
     </div>
 
 
-
-
 </div>
 </div>
+
+
 <!--#############################3#################3##################3###3##################3##-->
 <section data-bs-version="5.1" class="pricing1 boldm5 cid-ttRnSl4kMw" id="pricing2-c">
     <div class="container-fluid">
@@ -434,40 +290,16 @@
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <form id="form-lavagem7" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                        <form id="form-lavagem7" method="POST" action="{% url 'tipolavagemSUV_A' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input7" value="LIMPEZA_DE_MOTOR_COM_ENVENIZAMENTO">
-                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="showAlert(); return false;">
+                            <input type="hidden" name="lavagem_adicional" id="tipo-lavagem-input7" value="LIMPEZA_DE_MOTOR_COM_ENVENIZAMENTO">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem7'); return false;">
                             ESCOLHER
                         </a>
                         </form>
                     </div>
                 </div>
                 <script>
-
-                    function showAlert() {
-                        Swal.fire({
-                            title: 'Gostaria de escolher mais um tipo de lavagem?',
-                            text: 'Perfectwash',
-                            icon: 'question',
-                            showCancelButton: true,
-                            confirmButtonText: 'Sim',
-                            cancelButtonText: 'Não'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                Swal.fire('Você escolheu Sim!', '', 'success').then(() => {
-                                    window.location.href = "{% url 'tipolavagemHATCH_A' %}";
-                                });
-                                
-
-                                // Adicione a lógica aqui para permitir que o usuário escolha mais tipos de lavagem
-                            } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                window.location.href = "{% url 'calendario' %}";
-
-                                submitForm();
-                            }
-                        });
-                    }
                     function submitForm(formID) {
                         document.getElementById('tipo-lavagem-input7').value = 'LIMPEZA_DE_MOTOR_COM_ENVENIZAMENTO';
                         document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
@@ -495,40 +327,16 @@
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <form id="form-lavagem8" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                        <form id="form-lavagem8" method="POST" action="{% url 'tipolavagemSUV_A' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input8" value="DESCONTAMINAÇÃO">
-                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="showAlert(); return false;">
+                            <input type="hidden" name="lavagem_adicional" id="tipo-lavagem-input8" value="DESCONTAMINAÇÃO">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem8'); return false;">
                             ESCOLHER
                         </a>
                         </form>
                     </div>
                 </div>
                 <script>
-
-                    function showAlert() {
-                        Swal.fire({
-                            title: 'Gostaria de escolher mais um tipo de lavagem?',
-                            text: 'Perfectwash',
-                            icon: 'question',
-                            showCancelButton: true,
-                            confirmButtonText: 'Sim',
-                            cancelButtonText: 'Não'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                Swal.fire('Você escolheu Sim!', '', 'success').then(() => {
-                                    window.location.href = "{% url 'tipolavagemHATCH_A' %}";
-                                });
-                                
-
-                                // Adicione a lógica aqui para permitir que o usuário escolha mais tipos de lavagem
-                            } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                window.location.href = "{% url 'calendario' %}";
-
-                                submitForm();
-                            }
-                        });
-                    }
                     function submitForm(formID) {
                         document.getElementById('tipo-lavagem-input8').value = 'DESCONTAMINAÇÃO';
                         document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
@@ -557,10 +365,10 @@
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <form id="form-lavagem9" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                        <form id="form-lavagem9" method="POST" action="{% url 'tipolavagemSUV_A' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input9" value="CERA_EM_PASTA">
-                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="showAlert(); return false;">
+                            <input type="hidden" name="lavagem_adicional" id="tipo-lavagem-input9" value="CERA_EM_PASTA">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem9'); return false;">
                             ESCOLHER
                         </a>
                         </form>
@@ -569,30 +377,6 @@
             </div>
         </div>
         <script>
-
-            function showAlert() {
-                Swal.fire({
-                    title: 'Gostaria de escolher mais um tipo de lavagem?',
-                    text: 'Perfectwash',
-                    icon: 'question',
-                    showCancelButton: true,
-                    confirmButtonText: 'Sim',
-                    cancelButtonText: 'Não'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Swal.fire('Você escolheu Sim!', '', 'success').then(() => {
-                            window.location.href = "{% url 'tipolavagemHATCH_A' %}";
-                        });
-                        
-
-                        // Adicione a lógica aqui para permitir que o usuário escolha mais tipos de lavagem
-                    } else if (result.dismiss === Swal.DismissReason.cancel) {
-                        window.location.href = "{% url 'calendario' %}";
-
-                        submitForm();
-                    }
-                });
-            }
             function submitForm(formID) {
                 document.getElementById('tipo-lavagem-input9').value = 'CERA_EM_PASTA';
                 document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
@@ -628,40 +412,16 @@
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <form id="form-lavagem10" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                        <form id="form-lavagem10" method="POST" action="{% url 'tipolavagemSUV_A' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input10" value="REMOÇÃO_DE_CHUVA_ACIDA_E_VITRIFICAÇÃO_DO_PARABRIZA">
-                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="showAlert(); return false;">
+                            <input type="hidden" name="lavagem_adicional" id="tipo-lavagem-input10" value="REMOÇÃO_DE_CHUVA_ACIDA_E_VITRIFICAÇÃO_DO_PARABRIZA">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem10'); return false;">
                             ESCOLHER
                         </a>
                         </form>
                     </div>
                 </div>
                 <script>
-
-                    function showAlert() {
-                        Swal.fire({
-                            title: 'Gostaria de escolher mais um tipo de lavagem?',
-                            text: 'Perfectwash',
-                            icon: 'question',
-                            showCancelButton: true,
-                            confirmButtonText: 'Sim',
-                            cancelButtonText: 'Não'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                Swal.fire('Você escolheu Sim!', '', 'success').then(() => {
-                                    window.location.href = "{% url 'tipolavagemHATCH_A' %}";
-                                });
-                                
-
-                                // Adicione a lógica aqui para permitir que o usuário escolha mais tipos de lavagem
-                            } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                window.location.href = "{% url 'calendario' %}";
-
-                                submitForm();
-                            }
-                        });
-                    }
                     function submitForm(formID) {
                         document.getElementById('tipo-lavagem-input10').value = 'REMOÇÃO_DE_CHUVA_ACIDA_E_VITRIFICAÇÃO_DO_PARABRIZA';
                         document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
@@ -689,40 +449,16 @@
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <form id="form-lavagem11" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                        <form id="form-lavagem11" method="POST" action="{% url 'tipolavagemSUV_A' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input11" value="POLIMENTO_TECNICO_VITRIFICAÇÃO">
-                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="showAlert(); return false;">
+                            <input type="hidden" name="lavagem_adicional" id="tipo-lavagem-input11" value="POLIMENTO_TECNICO_VITRIFICAÇÃO">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem11'); return false;">
                             ESCOLHER
                         </a>
                     </form>
                     </div>
                 </div>
                 <script>
-
-                    function showAlert() {
-                        Swal.fire({
-                            title: 'Gostaria de escolher mais um tipo de lavagem?',
-                            text: 'Perfectwash',
-                            icon: 'question',
-                            showCancelButton: true,
-                            confirmButtonText: 'Sim',
-                            cancelButtonText: 'Não'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                Swal.fire('Você escolheu Sim!', '', 'success').then(() => {
-                                    window.location.href = "{% url 'tipolavagemHATCH_A' %}";
-                                });
-                                
-
-                                // Adicione a lógica aqui para permitir que o usuário escolha mais tipos de lavagem
-                            } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                window.location.href = "{% url 'calendario' %}";
-
-                                submitForm();
-                            }
-                        });
-                    }
                     function submitForm(formID) {
                         document.getElementById('tipo-lavagem-input11').value = 'POLIMENTO_TECNICO_VITRIFICAÇÃO';
                         document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
@@ -735,11 +471,11 @@
                         <p class="mbr-desc mbr-fonts-style display-4">
                         </p>
                         <p class="mbr-price mbr-fonts-style display-1">
-                            1850
+                            1950
                             <span>R$</span>
                         </p>
                         <h3 class="mbr-section-title mbr-fonts-style display-5">
-                            PACOTE COMPLETO VITRIFICAÇÃO 
+                            PACOTE COMPLETO VITRIFICAÇÃO
                         </h3>
                         <ul class="list mbr-fonts-style display-7">
                             <li class="item-wrap">Pintura </li>
@@ -751,10 +487,10 @@
                         </ul>
                     </div>
                     <div class="mbr-section-btn">
-                        <form id="form-lavagem12" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                        <form id="form-lavagem12" method="POST" action="{% url 'tipolavagemSUV_A' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input12" value="PACOTE_COMPLETO_VITRIFICAÇÃO">
-                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="showAlert(); return false;">
+                            <input type="hidden" name="lavagem_adicional" id="tipo-lavagem-input12" value="PACOTE_COMPLETO_VITRIFICAÇÃO">
+                            <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem12'); return false;">
                             ESCOLHER
                         </a>
                     </form>
@@ -765,38 +501,14 @@
         </div>
     </div>
     <script>
-
-        function showAlert() {
-            Swal.fire({
-                title: 'Gostaria de escolher mais um tipo de lavagem?',
-                text: 'Perfectwash',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonText: 'Sim',
-                cancelButtonText: 'Não'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire('Você escolheu Sim!', '', 'success').then(() => {
-                        window.location.href = "{% url 'tipolavagemHATCH_A' %}";
-                    });
-                    
-
-                    // Adicione a lógica aqui para permitir que o usuário escolha mais tipos de lavagem
-                } else if (result.dismiss === Swal.DismissReason.cancel) {
-                    window.location.href = "{% url 'calendario' %}";
-
-                    submitForm();
-                }
-            });
-        }
         function submitForm(formID) {
             document.getElementById('tipo-lavagem-input12').value = 'PACOTE_COMPLETO_VITRIFICAÇÃO';
             document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
         }
     </script>
-</div>  
 
 </section>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-lg-4 col-md-6 card">
@@ -824,40 +536,16 @@
                       
                 </div>
                 <div class="mbr-section-btn">
-                    <form id="form-lavagem22" method="POST" action="{% url 'tipolavagemHATCH' %}">
+                    <form id="form-lavagem22" method="POST" action="{% url 'tipolavagemSUV_A' %}">
                         {% csrf_token %}
-                        <input type="hidden" name="tipo_lavagem" id="tipo-lavagem-input22" value="HIGIENIZAÇÃO_DE_BANCOS_TÉCNICO_5L">
-                        <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="showAlert(); return false;">
+                        <input type="hidden" name="lavagem_adicional" id="tipo-lavagem-input22" value="HIGIENIZAÇÃO_DE_BANCOS_TÉCNICO_5L">
+                        <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem22'); return false;">
                         ESCOLHER
                     </a>
                     </form>
                 </div>
             </div>
             <script>
-
-                function showAlert() {
-                    Swal.fire({
-                        title: 'Gostaria de escolher mais um tipo de lavagem?',
-                        text: 'Perfectwash',
-                        icon: 'question',
-                        showCancelButton: true,
-                        confirmButtonText: 'Sim',
-                        cancelButtonText: 'Não'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire('Você escolheu Sim!', '', 'success').then(() => {
-                                window.location.href = "{% url 'tipolavagemHATCH_A' %}";
-                            });
-                            
-
-                            // Adicione a lógica aqui para permitir que o usuário escolha mais tipos de lavagem
-                        } else if (result.dismiss === Swal.DismissReason.cancel) {
-                            window.location.href = "{% url 'calendario' %}";
-
-                            submitForm();
-                        }
-                    });
-                }
                 function submitForm(formID) {
                     document.getElementById('tipo-lavagem-input22').value = 'HIGIENIZAÇÃO_DE_BANCOS_TÉCNICO_5L';
                     document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
@@ -866,7 +554,43 @@
         </div>
 
 
-      
+        <div class="col-12 col-lg-4 col-md-6 card">
+            <div class="card-wrapper">
+                <div class="price-wrapper">
+                    <p class="destacado">
+                        técnico - 7lug
+                    </p>
+                    <p class="mbr-price_1 mbr-fonts-style display-1">
+                        150 
+                        <span>R$</span>
+                    </p>
+                    <h3 class="mbr-section-title_1 mbr-fonts-style display-5">
+                        HIGIENIZAÇÃO DE BANCOS
+                    </h3>
+                    <ul class="list mbr-fonts-style display-7">
+                        <li class="item-tipo"> </li>
+                        <li class="item-tipo"></li>
+                        <li class="item-tipo"></li>
+                        <li class="item-tipo"></li>
+                    </ul>
+                </div>
+                <div class="mbr-section-btn">
+                    <form id="form-lavagem23" method="POST" action="{% url 'tipolavagemSUV_A' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="lavagem_adicional" id="tipo-lavagem-input23" value="HIGIENIZAÇÃO_DE_BANCOS_TÉCNICO_7L">
+                        <a id="btn-lavagem-tecnica" class="btn btn-secondary display-4" href="javascript:void(0)" onclick="submitForm('form-lavagem23'); return false;">
+                        ESCOLHER
+                    </a>
+                    </form>
+                </div>
+            </div>
+            <script>
+                function submitForm(formID) {
+                    document.getElementById('tipo-lavagem-input23').value = 'HIGIENIZAÇÃO_DE_BANCOS_TÉCNICO_7L';
+                    document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
+                }
+            </script>   
+            {% endblock%}
 </section>
 </section>
-{% endblock%}
+</section>
