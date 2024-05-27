@@ -430,8 +430,24 @@ def horario(request):
             print("Formulário inválido:", form.errors)  # Adicionar esta linha para ver os erros de validação do formulário
     else:
         form = HorarioSemanaForm()
-    return render(request, 'calendario/escolher_horario.html', {'form': form})
+    
+    perfil_calendario = UserProfile.objects.filter(user=request.user).first()
+    data_atual = perfil_calendario.data_atual if perfil_calendario else None
+    
+    horarios = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00"]
+    horarios_indisponiveis = {}
 
+    if data_atual:
+        for horario in horarios:
+            if UserProfile.objects.filter(horario=horario, data_atual=data_atual).count() >= 2:
+                horarios_indisponiveis[horario] = True
+            else:
+                horarios_indisponiveis[horario] = False
+
+    return render(request, 'calendario/escolher_horario.html', {
+        'form': form,
+        'horarios_indisponiveis': horarios_indisponiveis
+    })
 
 
 

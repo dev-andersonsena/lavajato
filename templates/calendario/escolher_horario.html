@@ -1,4 +1,4 @@
-{%load static %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,198 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static './assets/css/lavagem/horario.css' %}">
-
+    <style>
+        .hidden {
+            display: none;
+        }
+        .pw2 {
+          display: flex;
+          justify-content: space-between;/* Ajuste conforme necessário */
+          align-items: center;
+          flex-wrap: wrap;
+          flex-direction: column;  /* Ajuste conforme necessário */
+        }
+        
+    </style>
 </head>
 <body>
+    <div class="pw">
+        <div id="container" class="pw2">
+            {% for horario, indisponivel in horarios_indisponiveis.items %}
+            <form  id="horario-{{ forloop.counter }}" method="POST" action="{% url 'horario' %}" style="display: inline;">
+                {% csrf_token %}
+                <input type="hidden" name="horario_semana" id="horario_semana_input{{ forloop.counter }}" value="{{ horario }}">
+                <button class="learn-more {% if indisponivel %}hidden{% endif %}" type="button" onclick="submitForm('horario-{{ forloop.counter }}')" alt="Mythrill">
+                    <span class="circle" aria-hidden="true">
+                        <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">{{ horario }}</span>
+                </button>
+            </form>
+            {% endfor %}
+        </div>
+    </div>
 
-  <div class="pw">
-    <div id="container">
-      
-
-      <form id="horario-1" method="POST" action="{% url 'login' %}?next=/horario" style="display: inline;">
-        {% csrf_token %}
-        <input type="hidden" name="horario_semana" id="horario_semana_input1" value="08:00">
-        <button class="learn-more" type="button" onclick="submitForm('horario-1')" alt="Mythrill">
-            <span class="circle" aria-hidden="true">
-                <span class="icon arrow"></span>
-            </span>
-            <span class="button-text">08:00</span>
-        </button>
-    </form>
-    
-
-      </div>
-      <script>
+    <script>
         function submitForm(formID) {
             document.getElementById(formID).submit(); // Submete o formulário quando clicar no botão
         }
     </script>
-
-      <div id="container">
-        <form id="horario-2" method="POST" action="{% url 'horario' %}" style="display: inline;">
-          {% csrf_token %}
-          <input type="hidden" name="horario_semana" id="horario_semana_input2" value="09:00">
-          <button class="learn-more" href="#" onclick="submitForm('horario-2');" alt="Mythrill">
-            <span class="circle" aria-hidden="true">
-            <span class="icon arrow"></span>
-          </span>
-          <span class="button-text">09:00</span>
-        </button>
-        </form>
-      </div>
-
-      <script>
-        function submitForm(formID) {
-            document.getElementById('horario_semana_input2').value = '09:00';
-            document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
-        }
-    </script>
-
-
-      <div id="container">
-        <form id="horario-3" method="POST" action="{% url 'horario' %}" style="display: inline;">
-          {% csrf_token %}
-          <input type="hidden" name="horario_semana" id="horario_semana_input3" value="10:00">
-          <button class="learn-more" href="#" onclick="submitForm('horario-3');" alt="Mythrill">
-          <span class="circle" aria-hidden="true">
-            <span class="icon arrow"></span>
-          </span>
-          <span class="button-text">10:00</span>
-        </button>
-        </form>
-      </div>
-
-      <script>
-        function submitForm(formID) {
-            document.getElementById('horario_semana_input3').value = '10:00';
-            document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
-        }
-    </script>
-
-      <div id="container">
-        <form id="horario-4" method="POST" action="{% url 'horario' %}" style="display: inline;">
-          {% csrf_token %}
-          <input type="hidden" name="horario_semana" id="horario_semana_input4" value="11:00">
-          <button class="learn-more" href="#" onclick="submitForm('horario-4');" alt="Mythrill">
-          <span class="circle" aria-hidden="true">
-            <span class="icon arrow"></span>
-          </span>
-          <span class="button-text">11:00</span>
-        </button>
-        </form>
-      </div>
-
-      <script>
-        function submitForm(formID) {
-            document.getElementById('horario_semana_input4').value = '11:00';
-            document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
-        }
-    </script>
-
-      <div id="container">
-        <form id="horario-5" method="POST" action="{% url 'horario' %}" style="display: inline;">
-          {% csrf_token %}
-          <input type="hidden" name="horario_semana" id="horario_semana_input5" value="12:00">
-          <button class="learn-more" href="#" onclick="submitForm('horario-5');" alt="Mythrill">
-          <span class="circle" aria-hidden="true">
-            <span class="icon arrow"></span>
-          </span>
-          <span class="button-text">12:00</span>
-        </button>
-        </form>
-      </div>
-
-      <script>
-        function submitForm(formID) {
-            document.getElementById('horario_semana_input5').value = '12:00';
-            document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
-        }
-    </script>
-    
-
-      <div id="container">
-        <form id="horario-6" method="POST" action="{% url 'horario' %}" style="display: inline;">
-          {% csrf_token %}
-          <input type="hidden" name="horario_semana" id="horario_semana_input6" value="13:00">
-          <button class="learn-more" href="#" onclick="submitForm('horario-6');" alt="Mythrill">
-          <span class="circle" aria-hidden="true">
-            <span class="icon arrow"></span>
-          </span>
-          <span class="button-text">13:00</span>
-        </button>
-        </form>
-      </div>
-
-
-      <script>
-        function submitForm(formID) {
-            document.getElementById('horario_semana_input6').value = '13:00';
-            document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
-        }
-    </script>
-
-      <div id="container">
-        <form id="horario-7" method="POST" action="{% url 'horario' %}" style="display: inline;">
-          {% csrf_token %}
-          <input type="hidden" name="horario_semana" id="horario_semana_input7" value="14:00">
-          <button class="learn-more" href="#" onclick="submitForm('horario-7');" alt="Mythrill">
-          <span class="circle" aria-hidden="true">
-            <span class="icon arrow"></span>
-          </span>
-          <span class="button-text">14:00</span>
-        </button>
-        </form>
-      </div>
-
-
-      <script>
-        function submitForm(formID) {
-            document.getElementById('horario_semana_input7').value = '14:00';
-            document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
-        }
-    </script>
-
-      <div id="container">
-        <form id="horario-8" method="POST" action="{% url 'horario' %}" style="display: inline;">
-          {% csrf_token %}
-          <input type="hidden" name="horario_semana" id="horario_semana_input8" value="15:00">
-          <button class="learn-more" href="#" onclick="submitForm('horario-8');" alt="Mythrill">
-          <span class="circle" aria-hidden="true">
-            <span class="icon arrow"></span>
-          </span>
-          <span class="button-text">15:00</span>
-        </button>
-        </form>
-      </div>
-
-
-      <script>
-        function submitForm(formID) {
-            document.getElementById('horario_semana_input8').value = '15:00';
-            document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
-        }
-    </script>
-
-      <div id="container">
-        <form id="horario-9" method="POST" action="{% url 'horario' %}" style="display: inline;">
-          {% csrf_token %}
-          <input type="hidden" name="horario_semana" id="horario_semana_input9" value="16:00">
-          <button class="learn-more" href="#" onclick="submitForm('horario-9');" alt="Mythrill">
-          <span class="circle" aria-hidden="true">
-            <span class="icon arrow"></span>
-          </span>
-          <span class="button-text">16:00</span>
-        </button>
-        </form>
-      </div>
-
-      
-      <script>
-        function submitForm(formID) {
-            document.getElementById('horario_semana_input9').value = '16:00';
-            document.getElementById(formID).submit(); // Submete o formulário quando clicar no link
-        }
-    </script>
-      
 </body>
 </html>

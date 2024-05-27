@@ -11,6 +11,7 @@
   }
 }
 
+
 /* Estilos para mobile */
 @media only screen and (max-width: 767px) {
   /* Insira aqui os estilos específicos para mobile */
@@ -21,6 +22,10 @@
     height: 3rem;
   }
 }
+.pw2 {
+  display: flex;
+}
+
 
 /* Variáveis */
 :root {
