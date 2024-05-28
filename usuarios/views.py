@@ -155,8 +155,13 @@ def tipoLavagem(request):
             perfil_usuario = request.user.userprofile
             perfil_usuario.tipo_lavagem = tipo_lavagem_selecionado
             perfil_usuario.save()
-            print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
-            return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
+            # Redireciona para a página 'calendario' após salvar
+            if request.POST.get('mais_lavagem') == '1':
+                print(f"Lavagem selecionada: {tipo_lavagem_selecionado} = lavagem adicional selecionada")  # Mensagem de depuração
+                return redirect('tipolavagemHATCH_A')
+            else:
+                print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
+                return redirect('calendario')
     else:
         form = TipoLavagemForm()
     return render(request, 'tipoLavagem/tipolavagemHATCH.html', {'form': form})
@@ -171,8 +176,12 @@ def tipoLavagem2(request):
             perfil_usuario = request.user.userprofile
             perfil_usuario.tipo_lavagem = tipo_lavagem_selecionado
             perfil_usuario.save()
-            print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
-            return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
+            if request.POST.get('mais_lavagem') == '1':
+                print(f"Lavagem selecionada: {tipo_lavagem_selecionado} = lavagem adicional selecionada")  # Mensagem de depuração
+                return redirect('tipolavagemSEDAN_A')
+            else:
+                print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
+                return redirect('calendario') # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
     return render(request, 'tipoLavagem/tipolavagemSEDAN.html', {'form': form})
@@ -187,8 +196,12 @@ def tipoLavagem3(request):
             perfil_usuario = request.user.userprofile
             perfil_usuario.tipo_lavagem = tipo_lavagem_selecionado
             perfil_usuario.save()
-            print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
-            return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
+            if request.POST.get('mais_lavagem') == '1':
+                print(f"Lavagem selecionada: {tipo_lavagem_selecionado} = lavagem adicional selecionada")  # Mensagem de depuração
+                return redirect('tipolavagemPICAPE_A')
+            else:
+                print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
+                return redirect('calendario') # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
     return render(request, 'tipoLavagem/tipolavagemPICAPE.html', {'form': form})
@@ -202,8 +215,12 @@ def tipoLavagem4(request):
             perfil_usuario = request.user.userprofile
             perfil_usuario.tipo_lavagem = tipo_lavagem_selecionado
             perfil_usuario.save()
-            print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
-            return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
+            if request.POST.get('mais_lavagem') == '1':
+                print(f"Lavagem selecionada: {tipo_lavagem_selecionado} = lavagem adicional selecionada")  # Mensagem de depuração
+                return redirect('tipolavagemSUV_A')
+            else:
+                print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
+                return redirect('calendario') # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
     return render(request, 'tipoLavagem/tipolavagemSUV.html', {'form': form})
@@ -217,8 +234,12 @@ def tipoLavagem5(request):
             perfil_usuario = request.user.userprofile
             perfil_usuario.tipo_lavagem = tipo_lavagem_selecionado
             perfil_usuario.save()
-            print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
-            return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
+            if request.POST.get('mais_lavagem') == '1':
+                print(f"Lavagem selecionada: {tipo_lavagem_selecionado} = lavagem adicional selecionada")  # Mensagem de depuração
+                return redirect('tipolavagemMOTO_A')
+            else:
+                print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
+                return redirect('calendario') # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
     return render(request, 'tipoLavagem/tipolavagemMOTO.html', {'form': form})
@@ -232,8 +253,12 @@ def tipoLavagem6(request):
             perfil_usuario = request.user.userprofile
             perfil_usuario.tipo_lavagem = tipo_lavagem_selecionado
             perfil_usuario.save()
-            print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
-            return redirect('calendario')  # Redireciona para a página 'calendario' após salvar
+            if request.POST.get('mais_lavagem') == '1':
+                print(f"Lavagem selecionada: {tipo_lavagem_selecionado} = lavagem adicional selecionada")  # Mensagem de depuração
+                return redirect('tipolavagemMOTO2_A')
+            else:
+                print(f"Lavagem selecionada: {tipo_lavagem_selecionado}")  # Mensagem de depuração
+                return redirect('calendario') # Redireciona para a página 'calendario' após salvar
     else:
         form = TipoLavagemForm()
     return render(request, 'tipoLavagem/tipolavagemMOTO#2.html', {'form': form})
