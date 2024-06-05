@@ -39,12 +39,30 @@ class Semana(models.Model):
 
 class Funcionario(models.Model):
     nome = models.CharField(max_length=100)
-    Dupla = models.CharField(max_length=100)
-    colega = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
-
+    dupla = models.CharField(max_length=100)
+    Parceiro = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.nome
 #####  formação de duplas de funcionarios #####3
 
 
+################# distribuição para as duplas dos agendamentos ############
+class Dupla(models.Model):
+    nome = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nome
+    
+class Agendamento(models.Model):
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
+    data_agendamento = models.DateField()
+    horario = models.CharField(max_length=20, choices=HORARIO_SEMANA_CHOICES)
+    tipo_lavagem = models.CharField(max_length=100, choices=TIPOS_LAVAGEM_CHOICES, default='')
+    lavagem_adicional = models.CharField(max_length=100, choices=TIPOS_LAVAGEM_CHOICES, default='')
+    dupla_registrada = models.ManyToManyField(Dupla)
+
+    def __str__(self):
+        return f"Agendamento de {self.user_profile.user.username} com {self.funcionario.nome} em {self.data_agendamento}"
+    

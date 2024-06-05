@@ -1,5 +1,5 @@
 from django import forms
-from .models import UserProfile
+from .models import UserProfile, Funcionario
 from .models import TIPOS_LAVAGEM_CHOICES, DIA_SEMANA_CHOICES, HORARIO_SEMANA_CHOICES
 
 
@@ -118,7 +118,16 @@ class DiaSemanaForm(forms.Form):
 class HorarioSemanaForm(forms.Form):
     horario_semana = forms.ChoiceField(choices=HORARIO_SEMANA_CHOICES, widget=forms.RadioSelect)
 
+class FuncionarioForm(forms.ModelForm):
+    class Meta:
+        model = Funcionario
+        fields = ['nome']
 
 
+class DuplaForm(forms.ModelForm):
+    nome = forms.ModelChoiceField(queryset=Funcionario.objects.all(), label="Funcionário")
 
+    class Meta:
+        model = Funcionario
+        fields = ['nome', 'dupla', 'Parceiro']
 

@@ -1,0 +1,10 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% block content %}
+<h1>Adicionar Funcionário</h1>
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="default">Salvar</button>
+</form>
+<p><a href="{% url 'admin:usuarios_funcionario_changelist' %}">Voltar para a lista de funcionários</a></p>
+{% endblock %}

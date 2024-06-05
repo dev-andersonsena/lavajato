@@ -74,15 +74,11 @@ WSGI_APPLICATION = 'aplicativo.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'perfectwash',
-        'USER': 'admin',
-        'PASSWORD': 'FN98car32Jb1tAARlnwW2ADiv28G9eMw',
-        'HOST': 'dpg-cotb4sug1b2c73de6mqg-a.oregon-postgres.render.com',  # ou o endereço IP do seu servidor MySQL
-        'PORT': '5432',  # Porta padrão do MySQL
-        
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 # Password validation
