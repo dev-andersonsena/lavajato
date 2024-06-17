@@ -1,7 +1,8 @@
 from django import forms
-from .models import UserProfile, Funcionario
+from .models import UserProfile, Funcionario, Agendamento
 from .models import TIPOS_LAVAGEM_CHOICES, DIA_SEMANA_CHOICES, HORARIO_SEMANA_CHOICES
-
+from django.forms.widgets import SelectDateWidget
+from django.conf import settings
 
 class LoginForms(forms.Form):
     nome_login=forms.CharField(
@@ -121,13 +122,90 @@ class HorarioSemanaForm(forms.Form):
 class FuncionarioForm(forms.ModelForm):
     class Meta:
         model = Funcionario
-        fields = ['nome']
+        fields = ['nome']  
 
 
 class DuplaForm(forms.ModelForm):
-    nome = forms.ModelChoiceField(queryset=Funcionario.objects.all(), label="Funcionário")
+    
+    nome = forms.ModelChoiceField(
+        queryset=Funcionario.objects.all(),
+        label="nome",
+        required=False,
+        widget=forms.Select
+    )
+    Parceiro = forms.ModelChoiceField(
+        queryset=Funcionario.objects.all(),
+        required=False,
+        label="Parceiro"
+    )
 
+    dupla = forms.CharField(
+        label="Dupla",
+        required=True,
+        widget=forms.TextInput()
+    )
     class Meta:
         model = Funcionario
         fields = ['nome', 'dupla', 'Parceiro']
 
+    def __init__(self, *args, **kwargs):
+        super(DuplaForm, self).__init__(*args, **kwargs)
+        if self.instance:
+            self.fields['dupla'].initial = self.instance.chave
+
+    def save(self, commit=True):
+        instance = super(DuplaForm, self).save(commit=False)
+        instance.chave = self.cleaned_data['dupla']  # Salvando o nome da dupla inserido
+        if commit:
+            instance.save()
+        return instance
+    
+    
+    def __init__(self, *args, **kwargs):
+        super(DuplaForm, self).__init__(*args, **kwargs)
+        if self.instance:
+            self.fields['nome'].initial = self.instance.chave
+
+    
+    
+
+class AgendamentoForm(forms.ModelForm):
+    Clientes = forms.ModelChoiceField(
+        queryset=UserProfile.objects.all(),
+        label="Clientes",
+        widget=forms.Select
+    )
+
+    funcionario = forms.ModelChoiceField(
+        queryset=Funcionario.objects.all(),
+        label="Dupla",
+        widget=forms.Select
+    )
+
+    data_agendamento = forms.DateField(
+        label='Data do Agendamento',
+        widget=forms.SelectDateWidget()
+    )
+
+    horario = forms.ChoiceField(
+        label='Horário',
+        choices=HORARIO_SEMANA_CHOICES,
+        widget=forms.Select
+    )
+
+    class Meta:
+        model = Agendamento
+        fields = ['Clientes', 'funcionario', 'data_agendamento', 'horario']
+
+    def __init__(self, *args, **kwargs):
+        super(AgendamentoForm, self).__init__(*args, **kwargs)
+        self.fields['funcionario'].label_from_instance = lambda obj: obj.chave
+        if self.instance and hasattr(self.instance, 'user_profile'):
+            self.fields['Clientes'].initial = self.instance.user_profile
+
+    def save(self, commit=True):
+        instance = super(AgendamentoForm, self).save(commit=False)
+        instance.user_profile = self.cleaned_data['Clientes']
+        if commit:
+            instance.save()
+        return instance
