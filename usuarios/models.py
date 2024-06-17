@@ -48,6 +48,11 @@ class Funcionario(models.Model):
         if self.Parceiro:
             return self.Parceiro.nome
         return "Sem Parceiro"
+    def get_parceiro_nome(self):
+        return self.Parceiro.nome if self.Parceiro else ''
+    
+    def get_parceiro(self):
+        return self.Parceiro.nome if self.Parceiro else ''
     
 
 class Agendamento(models.Model):
