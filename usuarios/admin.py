@@ -74,7 +74,7 @@ class FuncionarioAdmin(admin.ModelAdmin):
     get_dupla.short_description = 'Dupla'
 
     def get_parceiro(self, obj):
-        return obj.Parceiro.nome if obj.Parceiro else None
+        return obj.Parceiro.nome if obj.Parceiro else ''
     get_parceiro.short_description = 'Parceiro'
 
 admin.site.register(Funcionario, FuncionarioAdmin)
