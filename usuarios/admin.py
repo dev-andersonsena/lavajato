@@ -90,7 +90,7 @@ class RelatoriosDeAgendamentosAdmin(admin.ModelAdmin):
         fieldsets = super().get_fieldsets(request, obj)
         # Remove o campo 'user_report_link' dos fieldsets
         return fieldsets   
-    
+
     def get_cliente(self, obj):
         return obj.user
     get_cliente.short_description = 'Cliente'
