@@ -7,36 +7,46 @@
     <title>Registro</title>
     <link rel="stylesheet" type="text/css" href="{% static './assets/css/cadastro.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static './assets/css/sistema/logo.css' %}">
-
 </head>
 <body>
   <div class="panel">
-		<div class="state"><br><i class="fa fa-user-plus"></i><br><h1>Registro</h1></div>
-		<div class="form">
-            <form action="{% url 'cadastro' %}" method="POST">
-                {% csrf_token %}
-                <label for="nome" class="letr">Nome:</label>
-                <input placeholder='Nome' type="text" name="nome_cadastro" required>
-            
-                <label for="email" class="letr">Email:</label>
-                <input placeholder='Email' type="text" name="email" required>
+    <div class="state"><br><i class="fa fa-user-plus"></i><br><h1>Registro</h1></div>
+    <div class="form">
+        <form action="{% url 'cadastro' %}" method="POST" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <label for="nome" class="letr">Nome:</label>
+            <input placeholder='Nome' type="text" name="nome_cadastro" required>
+        
+            <label for="email" class="letr">Email:</label>
+            <input placeholder='Email' type="text" name="email" required>
 
-                <label for="veiculo" class="letr">Veículo</label>
-                <input placeholder='Veículo ( Exemplo: Toyota )' type="text" name="veiculo" required>
-                <label for="telefone" class="letr">telefone</label>
-                <input placeholder='Digite seu telefone' type="text" name="telefone" required>
+            <label for="veiculo" class="letr">Veículo</label>
+            <input placeholder='Veículo (Exemplo: Toyota)' type="text" name="veiculo" required>
             
-                <label for="senha_1" class="letr">Senha:</label>
-                <input placeholder='Senha' type="password" name="senha_1" required>
-                <label for="senha_2" class="letr">Cofirmação de Senha:</label>
-                <input placeholder='Confirmar senha' type="password" name="senha_2" required>
-               
-
+            <label for="telefone" class="letr">Telefone</label>
+            <input placeholder='Digite seu telefone' type="text" name="telefone" required>
+        
+            <label for="senha_1" class="letr">Senha:</label>
+            <input placeholder='Senha' type="password" name="senha_1" id="senha_1" required>
             
-                <button type="submit" class="login">Cadastrar</button>
-            </form>
-            
-		</div>
-	</div>
+            <label for="senha_2" class="letr">Confirmação de Senha:</label>
+            <input placeholder='Confirmar senha' type="password" name="senha_2" id="senha_2" required>
+        
+            <button type="submit" class="login">Cadastrar</button>
+        </form>
+    </div>
+  </div>
+  <script>
+    function validateForm() {
+        var senha1 = document.getElementById('senha_1').value;
+        var senha2 = document.getElementById('senha_2').value;
+        
+        if (senha1 !== senha2) {
+            alert("As senhas não coincidem. Por favor, verifique.");
+            return false;  // Impede o envio do formulário
+        }
+        return true;  // Permite o envio do formulário
+    }
+  </script>
 </body>
 </html>
