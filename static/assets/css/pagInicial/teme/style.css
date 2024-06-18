@@ -542,9 +542,7 @@ nav .mbr-section-btn {
   .menu .navbar-collapse {
     max-height: 93.5vh;
   }
-  .menu .navbar-collapse.show {
-    overflow: none;
-  }
+ 
 }
 @media (min-width: 992px) {
   .menu .navbar-nav.nav-dropdown {
@@ -572,7 +570,6 @@ nav .mbr-section-btn {
 
 .navbar {
   display: -webkit-flex;
-  -webkit-flex-wrap: wrap;
   -webkit-align-items: center;
   -webkit-justify-content: space-between;
 }
@@ -590,12 +587,10 @@ nav .mbr-section-btn {
 
 .nav {
   display: -webkit-flex;
-  -webkit-flex-wrap: wrap;
 }
 
 .row {
   display: -webkit-flex;
-  -webkit-flex-wrap: wrap;
 }
 
 .justify-content-center {
