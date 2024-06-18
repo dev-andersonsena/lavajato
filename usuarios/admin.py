@@ -70,7 +70,7 @@ class FuncionarioAdmin(admin.ModelAdmin):
     delete_selected_duplas.short_description = "Apagar Duplas"
 
     def get_dupla(self, obj):
-        return obj.chave
+        return obj.get_dupla()
     get_dupla.short_description = 'Dupla'
 
     def get_parceiro(self, obj):
@@ -78,6 +78,7 @@ class FuncionarioAdmin(admin.ModelAdmin):
     get_parceiro.short_description = 'Parceiro'
 
 admin.site.register(Funcionario, FuncionarioAdmin)
+
 ########### fim classe funcionaro #####################3
 
 

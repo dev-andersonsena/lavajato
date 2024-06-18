@@ -51,9 +51,6 @@ class Funcionario(models.Model):
     def get_parceiro_nome(self):
         return self.Parceiro.nome if self.Parceiro else ''
     
-    def get_parceiro(self):
-        return self.Parceiro.nome if self.Parceiro else ''
-    
 
 class Agendamento(models.Model):
     user_profile = models.ForeignKey(UserProfile,on_delete=models.CASCADE)

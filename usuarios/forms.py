@@ -169,6 +169,7 @@ class DuplaForm(forms.ModelForm):
     
     
 
+
 class AgendamentoForm(forms.ModelForm):
     Clientes = forms.ModelChoiceField(
         queryset=UserProfile.objects.all(),
@@ -177,9 +178,10 @@ class AgendamentoForm(forms.ModelForm):
     )
 
     funcionario = forms.ModelChoiceField(
-        queryset=Funcionario.objects.all(),
+        queryset=Funcionario.objects.exclude(chave__isnull=True).exclude(chave=''),  # Exclui funcionários com chave vazia ou nula
         label="Dupla",
-        widget=forms.Select
+        widget=forms.Select,
+        empty_label='---------'  # Isso remove a opção vazia
     )
 
     data_agendamento = forms.DateField(
