@@ -1052,7 +1052,7 @@ body {
   }
   @media (max-width: 991px) {
     .cid-ttRnktJ11Q .navbar .nav-item {
-      padding: .5rem 0;
+      padding: 0.5rem 128px;
     }
     .cid-ttRnktJ11Q .navbar .navbar-collapse {
       padding: 34px 0;

@@ -999,8 +999,8 @@ body {
     margin: 0 !important;
   }
   .cid-ttRnktJ11Q .navbar {
-    min-height: 70px;
-    padding: 20px 0;
+    min-height: 70px; 
+    padding: 0px 0;
     transition: all 0.3s;
     border-bottom-width: 0;
   }
@@ -1053,10 +1053,10 @@ body {
   }
   @media (max-width: 991px) {
     .cid-ttRnktJ11Q .navbar .nav-item {
-      padding: .5rem 231px;
+      padding: 1.5rem 72px;
     }
     .cid-ttRnktJ11Q .navbar .navbar-collapse {
-      padding: 34px 0;
+      padding: 14px 0;
       border-radius: 25px;
     }
     .cid-ttRnktJ11Q .navbar .nav-item .nav-link::before {
@@ -1216,7 +1216,7 @@ body {
   .cid-ttRnktJ11Q a.nav-link {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
   }
   .cid-ttRnktJ11Q .icons-menu {
     flex-wrap: nowrap;
