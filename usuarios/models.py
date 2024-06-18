@@ -46,8 +46,8 @@ class Funcionario(models.Model):
 
     def get_dupla(self):
         if self.Parceiro:
-            return self.Parceiro.nome
-        return "Sem Parceiro"
+            return self.chave 
+        return "Funcionário"
     def get_parceiro_nome(self):
         return self.Parceiro.nome if self.Parceiro else ''
     
